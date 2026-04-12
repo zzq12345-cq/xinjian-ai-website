@@ -13,7 +13,7 @@
           </p>
         </div>
         <div class="product-hero__image animate-fade-in" style="animation-delay: 0.15s;">
-          <img src="/images/product-device.png" alt="HeartSound Device" />
+          <img src="/images/hero-device.png" alt="HeartSound Device" />
         </div>
       </div>
     </section>

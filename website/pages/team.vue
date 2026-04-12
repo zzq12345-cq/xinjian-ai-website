@@ -8,6 +8,9 @@
           {{ $t('team.heroSubtitle') }}
         </p>
       </div>
+      <div class="team-hero__photo">
+        <img src="/images/team-workspace.png" alt="团队协作" />
+      </div>
     </section>
 
     <!-- Team by Department -->
@@ -116,6 +119,21 @@ const departments = [
   font-size: var(--text-lg);
   color: var(--text-secondary);
   font-weight: 400;
+}
+
+.team-hero__photo {
+  margin-top: 48px;
+  padding: 0 var(--space-8);
+  max-width: var(--container-xl);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-hero__photo img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
 }
 
 .team-dept {

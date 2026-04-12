@@ -26,7 +26,19 @@
       </div>
 
       <div class="hero__image animate-fade-in" style="animation-delay: 0.2s;">
-        <img src="/images/product-device.png" alt="心音智鉴设备" />
+        <img src="/images/hero-device.png" alt="心音智鉴设备" />
+      </div>
+    </div>
+
+    <!-- Family scene banner -->
+    <div class="hero__scene">
+      <div class="container">
+        <div class="hero__scene-inner scroll-reveal">
+          <img src="/images/family-health.png" alt="家庭健康守护" class="hero__scene-img" />
+          <div class="hero__scene-overlay">
+            <p class="hero__scene-text">{{ $t('hero.ctaSecondary') }} — {{ $t('pain.subtitle') }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -39,16 +51,13 @@ const localePath = useLocalePath()
 <style scoped>
 .hero {
   position: relative;
-  min-height: 600px;
-  display: flex;
-  align-items: center;
   overflow: hidden;
-  padding: 100px 0 80px;
 }
 
 .hero__bg {
   position: absolute;
   inset: 0;
+  height: 100%;
 }
 
 .hero__bg-gradient {
@@ -64,6 +73,8 @@ const localePath = useLocalePath()
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .hero__title {
@@ -103,6 +114,43 @@ const localePath = useLocalePath()
   max-width: 100%;
   max-height: 460px;
   object-fit: contain;
+  border-radius: var(--radius-lg);
+}
+
+/* Family Scene Banner */
+.hero__scene {
+  position: relative;
+  z-index: 1;
+  padding: 0 0 80px;
+}
+
+.hero__scene-inner {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.hero__scene-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.hero__scene-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.6));
+}
+
+.hero__scene-text {
+  color: white;
+  font-size: var(--text-lg);
+  font-weight: 400;
+  max-width: 600px;
 }
 
 @media (max-width: 1024px) {
@@ -110,6 +158,8 @@ const localePath = useLocalePath()
     grid-template-columns: 1fr;
     gap: var(--space-10);
     text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   .hero__subtitle {
@@ -131,13 +181,13 @@ const localePath = useLocalePath()
   .hero__image img {
     max-height: 320px;
   }
+
+  .hero__scene-img {
+    height: 240px;
+  }
 }
 
 @media (max-width: 640px) {
-  .hero {
-    padding: 60px 0;
-  }
-
   .hero__title {
     font-size: var(--text-3xl);
   }

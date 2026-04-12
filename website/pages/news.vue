@@ -14,10 +14,15 @@
     <section class="section">
       <div class="container">
         <div class="news-featured scroll-reveal">
-          <span class="news-featured__badge">{{ $t(`news.categories.${newsItems[0].category}`) }}</span>
-          <h2 class="news-featured__title">{{ newsItems[0].title }}</h2>
-          <p class="news-featured__excerpt">{{ newsItems[0].excerpt }}</p>
-          <span class="news-featured__date">{{ newsItems[0].date }}</span>
+          <div class="news-featured__img">
+            <img src="/images/news-launch.png" alt="官网上线" />
+          </div>
+          <div class="news-featured__body">
+            <span class="news-featured__badge">{{ $t(`news.categories.${newsItems[0].category}`) }}</span>
+            <h2 class="news-featured__title">{{ newsItems[0].title }}</h2>
+            <p class="news-featured__excerpt">{{ newsItems[0].excerpt }}</p>
+            <span class="news-featured__date">{{ newsItems[0].date }}</span>
+          </div>
         </div>
 
         <!-- List -->
@@ -100,18 +105,27 @@ const newsItems = [
 
 /* Featured */
 .news-featured {
-  padding: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
   background: var(--surface-light);
   margin-bottom: 60px;
-  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
 }
 
-.news-featured::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 4px; height: 100%;
-  background: var(--brand-primary);
+.news-featured__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.news-featured__body {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .news-featured__badge {
