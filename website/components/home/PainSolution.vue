@@ -1,81 +1,23 @@
 <template>
-  <section class="pain section">
+  <section class="pain section" style="background: var(--surface-light);">
     <div class="container">
       <div class="section-header">
-        <div class="section-badge scroll-reveal">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 22c5.5-3 9-7.5 9-12S17.5 2 12 2 3 5.5 3 10s3.5 9 9 12z" />
-          </svg>
-          {{ $t('pain.badge') }}
-        </div>
         <h2 class="section-title scroll-reveal">{{ $t('pain.title') }}</h2>
         <p class="section-subtitle scroll-reveal">{{ $t('pain.subtitle') }}</p>
       </div>
 
       <div class="pain__grid stagger-children">
-        <!-- Pain Point 1 -->
-        <div class="pain__card scroll-reveal">
-          <div class="pain__problem">
-            <div class="pain__emoji">😟</div>
-            <h3 class="pain__problem-title">{{ $t('pain.pain1Title') }}</h3>
-            <p class="pain__problem-desc">{{ $t('pain.pain1Desc') }}</p>
-          </div>
-          <div class="pain__arrow">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="2">
-              <path d="M12 5v14M5 12l7 7 7-7" />
-            </svg>
-          </div>
-          <div class="pain__solution">
-            <div class="pain__solution-check">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+        <div v-for="(item, i) in painItems" :key="i" class="pain__card scroll-reveal">
+          <div class="pain__number">{{ String(i + 1).padStart(2, '0') }}</div>
+          <div class="pain__content">
+            <h3 class="pain__title">{{ $t(item.titleKey) }}</h3>
+            <p class="pain__desc">{{ $t(item.descKey) }}</p>
+            <div class="pain__solution">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="2.5">
                 <path d="M5 13l4 4L19 7" />
               </svg>
+              <span>{{ $t(item.solutionKey) }}</span>
             </div>
-            <span class="pain__solution-text">{{ $t('pain.pain1Solution') }}</span>
-          </div>
-        </div>
-
-        <!-- Pain Point 2 -->
-        <div class="pain__card scroll-reveal">
-          <div class="pain__problem">
-            <div class="pain__emoji">📱</div>
-            <h3 class="pain__problem-title">{{ $t('pain.pain2Title') }}</h3>
-            <p class="pain__problem-desc">{{ $t('pain.pain2Desc') }}</p>
-          </div>
-          <div class="pain__arrow">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="2">
-              <path d="M12 5v14M5 12l7 7 7-7" />
-            </svg>
-          </div>
-          <div class="pain__solution">
-            <div class="pain__solution-check">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-                <path d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <span class="pain__solution-text">{{ $t('pain.pain2Solution') }}</span>
-          </div>
-        </div>
-
-        <!-- Pain Point 3 -->
-        <div class="pain__card scroll-reveal">
-          <div class="pain__problem">
-            <div class="pain__emoji">🔋</div>
-            <h3 class="pain__problem-title">{{ $t('pain.pain3Title') }}</h3>
-            <p class="pain__problem-desc">{{ $t('pain.pain3Desc') }}</p>
-          </div>
-          <div class="pain__arrow">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="2">
-              <path d="M12 5v14M5 12l7 7 7-7" />
-            </svg>
-          </div>
-          <div class="pain__solution">
-            <div class="pain__solution-check">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-                <path d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <span class="pain__solution-text">{{ $t('pain.pain3Solution') }}</span>
           </div>
         </div>
       </div>
@@ -83,82 +25,63 @@
   </section>
 </template>
 
-<style scoped>
-.pain {
-  background: var(--surface-light);
-}
+<script setup lang="ts">
+const painItems = [
+  { titleKey: 'pain.pain1Title', descKey: 'pain.pain1Desc', solutionKey: 'pain.pain1Solution' },
+  { titleKey: 'pain.pain2Title', descKey: 'pain.pain2Desc', solutionKey: 'pain.pain2Solution' },
+  { titleKey: 'pain.pain3Title', descKey: 'pain.pain3Desc', solutionKey: 'pain.pain3Solution' },
+]
+</script>
 
+<style scoped>
 .pain__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
 .pain__card {
   background: var(--surface-white);
-  border-radius: var(--radius-lg);
-  padding: var(--space-8);
-  text-align: center;
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-base);
-  border: 1px solid var(--border-light);
+  padding: 40px 32px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: var(--space-4);
+  transition: box-shadow var(--transition-base);
 }
 
 .pain__card:hover {
   box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
 }
 
-.pain__emoji {
-  font-size: 3rem;
-  margin-bottom: var(--space-2);
+.pain__number {
+  font-size: var(--text-4xl);
+  font-weight: 300;
+  color: var(--border-light);
+  margin-bottom: var(--space-6);
+  font-family: var(--font-display);
+  line-height: 1;
 }
 
-.pain__problem-title {
+.pain__title {
   font-size: var(--text-xl);
-  font-weight: 700;
-  margin-bottom: var(--space-2);
+  font-weight: 600;
+  margin-bottom: var(--space-3);
 }
 
-.pain__problem-desc {
+.pain__desc {
   font-size: var(--text-sm);
   color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.pain__arrow {
-  padding: var(--space-2);
-  opacity: 0.5;
+  line-height: 1.7;
+  margin-bottom: var(--space-6);
+  flex: 1;
 }
 
 .pain__solution {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-3) var(--space-5);
-  background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
-  border-radius: var(--radius-full);
-  color: white;
-}
-
-.pain__solution-check {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.pain__solution-text {
-  font-weight: 600;
+  gap: var(--space-2);
+  color: var(--brand-primary);
   font-size: var(--text-sm);
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {

@@ -14,7 +14,7 @@ useScrollAnimation()
 
 <style>
 .main-content {
-  padding-top: var(--navbar-height);
   min-height: 100vh;
+  padding-top: var(--navbar-height);
 }
 </style>

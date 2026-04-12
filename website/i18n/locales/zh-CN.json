@@ -153,11 +153,16 @@
     }
   },
   "footer": {
-    "desc": "用AI守护每一次心跳",
-    "quickLinks": "快速链接",
-    "contactUs": "联系我们",
-    "followUs": "关注我们",
+    "slogan": "用AI守护每一次心跳",
+    "products": "产品",
+    "heartSound": "心音智鉴",
+    "miniProgram": "微信小程序",
+    "company": "公司",
+    "about": "关于我们",
+    "news": "新闻动态",
+    "contact": "联系我们",
     "copyright": "© 2026 心鉴智能科技工作室 版权所有",
-    "icp": "ICP备案号待申请"
+    "privacy": "隐私政策",
+    "terms": "法律声明"
   }
 }

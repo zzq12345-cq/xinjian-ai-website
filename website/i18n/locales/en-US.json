@@ -153,11 +153,16 @@
     }
   },
   "footer": {
-    "desc": "Guarding Every Heartbeat with AI",
-    "quickLinks": "Quick Links",
-    "contactUs": "Contact Us",
-    "followUs": "Follow Us",
+    "slogan": "Guarding Every Heartbeat with AI",
+    "products": "Products",
+    "heartSound": "HeartSound",
+    "miniProgram": "Mini Program",
+    "company": "Company",
+    "about": "About Us",
+    "news": "News",
+    "contact": "Contact Us",
     "copyright": "© 2026 XinJian AI Technology Studio. All rights reserved.",
-    "icp": "ICP Filing Pending"
+    "privacy": "Privacy Policy",
+    "terms": "Legal Notice"
   }
 }

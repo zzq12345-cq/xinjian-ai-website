@@ -1,70 +1,42 @@
 <template>
   <footer class="footer">
-    <!-- Wave Separator -->
-    <div class="footer__wave">
-      <svg viewBox="0 0 1440 100" fill="none" preserveAspectRatio="none">
-        <path d="M0 40C240 80 480 0 720 40C960 80 1200 0 1440 40V100H0V40Z" fill="var(--surface-dark)" />
-      </svg>
-    </div>
-
-    <div class="footer__inner">
+    <div class="footer__top">
       <div class="container">
         <div class="footer__grid">
           <!-- Brand Column -->
           <div class="footer__brand">
-            <div class="footer__logo">
-              <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
-                <circle cx="18" cy="18" r="18" fill="url(#footer-logo-gradient)" />
-                <path d="M18 10c-2.5-2.5-6.5-2.5-9 0s-2.5 6.5 0 9l9 9 9-9c2.5-2.5 2.5-6.5 0-9s-6.5-2.5-9 0z" fill="white" opacity="0.9" />
-                <path d="M12 18h3l2-4 2 8 2-6 2 2h3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-                <defs>
-                  <linearGradient id="footer-logo-gradient" x1="0" y1="0" x2="36" y2="36">
-                    <stop offset="0%" stop-color="#0891B2" />
-                    <stop offset="100%" stop-color="#14B8A6" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              <span>心鉴智能</span>
-            </div>
-            <p class="footer__desc">{{ $t('footer.desc') }}</p>
+            <span class="footer__logo">心鉴智能</span>
+            <p class="footer__slogan">{{ $t('footer.slogan') }}</p>
           </div>
 
-          <!-- Quick Links -->
-          <div class="footer__column">
-            <h4 class="footer__column-title">{{ $t('footer.quickLinks') }}</h4>
-            <nav class="footer__nav">
-              <NuxtLink :to="localePath('/')" class="footer__link">{{ $t('nav.home') }}</NuxtLink>
-              <NuxtLink :to="localePath('/product')" class="footer__link">{{ $t('nav.product') }}</NuxtLink>
-              <NuxtLink :to="localePath('/team')" class="footer__link">{{ $t('nav.team') }}</NuxtLink>
-              <NuxtLink :to="localePath('/news')" class="footer__link">{{ $t('nav.news') }}</NuxtLink>
-            </nav>
+          <!-- Nav Columns -->
+          <div class="footer__col">
+            <h4 class="footer__col-title">{{ $t('footer.products') }}</h4>
+            <NuxtLink :to="localePath('/product')" class="footer__link">{{ $t('footer.heartSound') }}</NuxtLink>
+            <a href="#" class="footer__link">{{ $t('footer.miniProgram') }}</a>
           </div>
 
-          <!-- Contact -->
-          <div class="footer__column">
-            <h4 class="footer__column-title">{{ $t('footer.contactUs') }}</h4>
-            <div class="footer__contact-items">
-              <a href="mailto:contact@xinjian-ai.com" class="footer__contact-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="2" y="4" width="20" height="16" rx="2" />
-                  <path d="M22 4L12 13 2 4" />
-                </svg>
-                contact@xinjian-ai.com
-              </a>
-              <a href="tel:+8613800138000" class="footer__contact-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-                138-0013-8000
-              </a>
-            </div>
+          <div class="footer__col">
+            <h4 class="footer__col-title">{{ $t('footer.company') }}</h4>
+            <NuxtLink :to="localePath('/team')" class="footer__link">{{ $t('footer.about') }}</NuxtLink>
+            <NuxtLink :to="localePath('/news')" class="footer__link">{{ $t('footer.news') }}</NuxtLink>
+          </div>
+
+          <div class="footer__col">
+            <h4 class="footer__col-title">{{ $t('footer.contact') }}</h4>
+            <a href="mailto:contact@xinjian-ai.com" class="footer__link">contact@xinjian-ai.com</a>
+            <a href="tel:+8613800138000" class="footer__link">138-0013-8000</a>
           </div>
         </div>
+      </div>
+    </div>
 
-        <!-- Bottom Bar -->
-        <div class="footer__bottom">
-          <p>{{ $t('footer.copyright') }}</p>
-          <p>{{ $t('footer.icp') }}</p>
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p class="footer__copyright">{{ $t('footer.copyright') }}</p>
+        <div class="footer__legal">
+          <a href="#" class="footer__legal-link">{{ $t('footer.privacy') }}</a>
+          <a href="#" class="footer__legal-link">{{ $t('footer.terms') }}</a>
         </div>
       </div>
     </div>
@@ -77,124 +49,100 @@ const localePath = useLocalePath()
 
 <style scoped>
 .footer {
-  position: relative;
-}
-
-.footer__wave {
-  height: 60px;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.footer__wave svg {
-  width: 100%;
-  height: 100%;
-}
-
-.footer__inner {
   background: var(--surface-dark);
-  color: rgba(255, 255, 255, 0.8);
-  padding: var(--space-16) 0 var(--space-8);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer__top {
+  padding: 64px 0 48px;
 }
 
 .footer__grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: var(--space-12);
-  margin-bottom: var(--space-12);
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: var(--space-10);
 }
 
-/* Brand */
 .footer__logo {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  margin-bottom: var(--space-4);
-}
-
-.footer__logo span {
-  font-size: var(--text-xl);
-  font-weight: 700;
-  color: white;
-  font-family: var(--font-display);
-}
-
-.footer__desc {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: var(--text-sm);
-  line-height: 1.6;
-  max-width: 320px;
-}
-
-/* Columns */
-.footer__column-title {
-  font-size: var(--text-sm);
+  font-size: 1.375rem;
   font-weight: 600;
-  color: white;
-  margin-bottom: var(--space-4);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  color: var(--text-inverse);
+  display: block;
+  margin-bottom: var(--space-3);
 }
 
-.footer__nav {
+.footer__slogan {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.45);
+  max-width: 260px;
+  line-height: 1.6;
+}
+
+.footer__col {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-3);
+}
+
+.footer__col-title {
+  color: var(--text-inverse);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  margin-bottom: var(--space-1);
 }
 
 .footer__link {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
   font-size: var(--text-sm);
   text-decoration: none;
   transition: color var(--transition-fast);
-  padding: var(--space-1) 0;
 }
 
 .footer__link:hover {
-  color: var(--brand-primary-light);
+  color: var(--text-inverse);
 }
 
-/* Contact Items */
-.footer__contact-items {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: var(--space-5) 0;
 }
 
-.footer__contact-item {
+.footer__bottom-inner {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: var(--space-2);
-  color: rgba(255, 255, 255, 0.6);
-  font-size: var(--text-sm);
+}
+
+.footer__copyright {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.footer__legal {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.footer__legal-link {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.3);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
-.footer__contact-item:hover {
-  color: var(--brand-primary-light);
-}
-
-/* Bottom */
-.footer__bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: var(--space-8);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.4);
+.footer__legal-link:hover {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 @media (max-width: 768px) {
   .footer__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-8);
   }
 
-  .footer__bottom {
+  .footer__bottom-inner {
     flex-direction: column;
-    gap: var(--space-2);
+    gap: var(--space-3);
     text-align: center;
   }
 }

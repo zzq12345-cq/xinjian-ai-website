@@ -1,5 +1,6 @@
 /* ============================================
    心鉴智能 - 全局样式
+   华为风格：大留白、高级感、极简克制
    ============================================ */
 
 /* ─── Reset & Base ─── */
@@ -20,20 +21,20 @@ html {
 body {
   font-family: var(--font-sans);
   font-size: var(--text-base);
-  line-height: 1.7;
+  line-height: 1.8;
   color: var(--text-primary);
   background-color: var(--surface-white);
   overflow-x: hidden;
 }
 
 a {
-  color: var(--brand-primary);
+  color: var(--text-primary);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 a:hover {
-  color: var(--brand-primary-light);
+  color: var(--brand-primary);
 }
 
 img {
@@ -52,8 +53,10 @@ button {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  line-height: 1.3;
+  line-height: 1.25;
   color: var(--text-primary);
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 /* ─── Container ─── */
@@ -61,52 +64,53 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   max-width: var(--container-xl);
   margin: 0 auto;
-  padding: 0 var(--space-6);
+  padding: 0 var(--space-8);
 }
 
 @media (max-width: 768px) {
   .container {
-    padding: 0 var(--space-4);
+    padding: 0 var(--space-5);
   }
 }
 
-/* ─── Section Spacing ─── */
+/* ─── Section Spacing (华为风格：超大间距) ─── */
 .section {
-  padding: var(--space-24) 0;
+  padding: 80px 0;
 }
 
 .section--sm {
-  padding: var(--space-16) 0;
+  padding: 60px 0;
 }
 
 .section--lg {
-  padding: 8rem 0;
+  padding: 120px 0;
 }
 
-/* ─── Section Headers ─── */
+/* ─── Section Headers (华为风格：左对齐/居中，极简) ─── */
 .section-header {
   text-align: center;
-  margin-bottom: var(--space-16);
+  margin-bottom: 60px;
 }
 
 .section-badge {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-2) var(--space-4);
-  background: var(--brand-primary-50);
-  color: var(--brand-primary);
-  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-4);
+  color: var(--text-muted);
   font-size: var(--text-sm);
-  font-weight: 500;
+  font-weight: 400;
   margin-bottom: var(--space-4);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .section-title {
   font-size: var(--text-4xl);
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: var(--space-4);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
 }
 
 .section-subtitle {
@@ -114,11 +118,13 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-secondary);
   max-width: 640px;
   margin: 0 auto;
+  font-weight: 400;
+  line-height: 1.7;
 }
 
 @media (max-width: 768px) {
   .section-title {
-    font-size: var(--text-2xl);
+    font-size: var(--text-3xl);
   }
 
   .section-subtitle {
@@ -126,79 +132,91 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* ─── Buttons ─── */
+/* ─── Buttons（华为风格：矩形、小圆角、精简） ─── */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  padding: var(--space-3) var(--space-6);
-  border-radius: var(--radius-lg);
-  font-weight: 600;
+  padding: 12px 32px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
   font-size: var(--text-base);
   transition: all var(--transition-base);
   white-space: nowrap;
+  letter-spacing: 0.02em;
 }
 
 .btn--primary {
   background: var(--brand-primary);
   color: var(--text-inverse);
-  box-shadow: var(--shadow-brand);
 }
 
 .btn--primary:hover {
   background: var(--brand-primary-light);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 28px rgba(8, 145, 178, 0.3);
+  color: var(--text-inverse);
 }
 
 .btn--outline {
-  border: 2px solid var(--brand-primary);
-  color: var(--brand-primary);
+  border: 1px solid var(--text-primary);
+  color: var(--text-primary);
   background: transparent;
 }
 
 .btn--outline:hover {
-  background: var(--brand-primary);
+  background: var(--text-primary);
   color: var(--text-inverse);
-  transform: translateY(-2px);
 }
 
 .btn--lg {
-  padding: var(--space-4) var(--space-8);
+  padding: 14px 40px;
   font-size: var(--text-lg);
-  border-radius: var(--radius-xl);
 }
 
 .btn--white {
   background: var(--surface-white);
-  color: var(--brand-primary);
+  color: var(--text-primary);
 }
 
 .btn--white:hover {
-  background: var(--brand-primary-50);
-  transform: translateY(-2px);
+  background: var(--surface-light);
 }
 
-/* ─── Cards ─── */
+.btn--ghost {
+  color: var(--text-primary);
+  padding: 0;
+  font-weight: 400;
+  gap: var(--space-2);
+}
+
+.btn--ghost:hover {
+  color: var(--brand-primary);
+}
+
+.btn--ghost svg {
+  transition: transform var(--transition-fast);
+}
+
+.btn--ghost:hover svg {
+  transform: translateX(4px);
+}
+
+/* ─── Cards（华为风格：无边框/极浅边框，大图驱动） ─── */
 .card {
   background: var(--surface-white);
-  border-radius: var(--radius-lg);
-  padding: var(--space-8);
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-md);
+  overflow: hidden;
   transition: all var(--transition-base);
-  border: 1px solid var(--border-light);
 }
 
 .card:hover {
   box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
 }
 
 /* ─── Grid System ─── */
 .grid {
   display: grid;
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
 .grid--2 {
@@ -214,10 +232,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 1024px) {
-  .grid--3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
+  .grid--3,
   .grid--4 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -233,7 +248,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ─── Text Utilities ─── */
 .text-gradient {
-  background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-primary-dark));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -243,11 +258,34 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
-/* ─── Scroll Reveal (used with useScrollAnimation composable) ─── */
+/* ─── "了解更多" Link Arrow（华为标志性模式） ─── */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--brand-primary);
+  font-size: var(--text-base);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.link-arrow:hover {
+  gap: var(--space-3);
+}
+
+.link-arrow svg {
+  transition: transform var(--transition-fast);
+}
+
+.link-arrow:hover svg {
+  transform: translateX(4px);
+}
+
+/* ─── Scroll Reveal ─── */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .scroll-reveal.is-visible {
@@ -257,8 +295,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .scroll-reveal-left {
   opacity: 0;
-  transform: translateX(-30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateX(-24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .scroll-reveal-left.is-visible {
@@ -268,8 +306,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .scroll-reveal-right {
   opacity: 0;
-  transform: translateX(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateX(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .scroll-reveal-right.is-visible {
@@ -277,10 +315,17 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(0);
 }
 
-/* ─── Stagger animation children ─── */
+/* ─── Stagger children ─── */
 .stagger-children .scroll-reveal:nth-child(1) { transition-delay: 0ms; }
-.stagger-children .scroll-reveal:nth-child(2) { transition-delay: 100ms; }
-.stagger-children .scroll-reveal:nth-child(3) { transition-delay: 200ms; }
-.stagger-children .scroll-reveal:nth-child(4) { transition-delay: 300ms; }
-.stagger-children .scroll-reveal:nth-child(5) { transition-delay: 400ms; }
-.stagger-children .scroll-reveal:nth-child(6) { transition-delay: 500ms; }
+.stagger-children .scroll-reveal:nth-child(2) { transition-delay: 80ms; }
+.stagger-children .scroll-reveal:nth-child(3) { transition-delay: 160ms; }
+.stagger-children .scroll-reveal:nth-child(4) { transition-delay: 240ms; }
+.stagger-children .scroll-reveal:nth-child(5) { transition-delay: 320ms; }
+.stagger-children .scroll-reveal:nth-child(6) { transition-delay: 400ms; }
+
+/* ─── Divider ─── */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border-light);
+}

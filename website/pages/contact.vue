@@ -2,8 +2,7 @@
   <div class="contact-page">
     <!-- Hero -->
     <section class="contact-hero">
-      <div class="contact-hero__bg"></div>
-      <div class="container contact-hero__content">
+      <div class="container">
         <h1 class="contact-hero__title animate-fade-in-up">{{ $t('contact.heroTitle') }}</h1>
         <p class="contact-hero__subtitle animate-fade-in-up" style="animation-delay: 0.1s;">
           {{ $t('contact.heroSubtitle') }}
@@ -11,22 +10,20 @@
       </div>
     </section>
 
-    <!-- Contact Content -->
+    <!-- Contact Grid -->
     <section class="section">
       <div class="container">
         <div class="contact-grid">
-          <!-- Info Column -->
+          <!-- Info -->
           <div class="contact-info scroll-reveal">
             <h2 class="contact-info__title">{{ $t('contact.infoTitle') }}</h2>
 
             <div class="contact-info__items">
               <a href="mailto:contact@xinjian-ai.com" class="contact-info__item">
-                <div class="contact-info__icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="4" width="20" height="16" rx="2" />
-                    <path d="M22 4L12 13 2 4" />
-                  </svg>
-                </div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="M22 4L12 13 2 4" />
+                </svg>
                 <div>
                   <p class="contact-info__label">{{ $t('contact.email') }}</p>
                   <p class="contact-info__value">contact@xinjian-ai.com</p>
@@ -34,55 +31,29 @@
               </a>
 
               <a href="tel:+8613800138000" class="contact-info__item">
-                <div class="contact-info__icon">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-                  </svg>
-                </div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
                 <div>
                   <p class="contact-info__label">{{ $t('contact.phone') }}</p>
                   <p class="contact-info__value">138-0013-8000</p>
                 </div>
               </a>
             </div>
-
-            <!-- Decorative -->
-            <div class="contact-info__decor">
-              <div class="contact-info__heart animate-heartbeat">
-                <svg width="60" height="60" viewBox="0 0 24 24" fill="var(--brand-primary)" opacity="0.1">
-                  <path d="M12 4.5c-1.7-1.7-4.4-1.7-6.1 0s-1.7 4.4 0 6.1L12 17l6.1-6.4c1.7-1.7 1.7-4.4 0-6.1s-4.4-1.7-6.1 0z" />
-                </svg>
-              </div>
-            </div>
           </div>
 
-          <!-- Form Column -->
+          <!-- Form -->
           <div class="contact-form-wrapper scroll-reveal-right">
-            <h2 class="contact-form__title">{{ $t('contact.formTitle') }}</h2>
-
             <form class="contact-form" @submit.prevent="handleSubmit">
-              <div class="contact-form__group">
-                <label class="contact-form__label" for="name">{{ $t('contact.formName') }}</label>
-                <input
-                  id="name"
-                  v-model="form.name"
-                  type="text"
-                  class="contact-form__input"
-                  :placeholder="$t('contact.formName')"
-                  required
-                />
-              </div>
-
-              <div class="contact-form__group">
-                <label class="contact-form__label" for="email">{{ $t('contact.formEmail') }}</label>
-                <input
-                  id="email"
-                  v-model="form.email"
-                  type="email"
-                  class="contact-form__input"
-                  :placeholder="$t('contact.formEmail')"
-                  required
-                />
+              <div class="contact-form__row">
+                <div class="contact-form__group">
+                  <label class="contact-form__label" for="name">{{ $t('contact.formName') }}</label>
+                  <input id="name" v-model="form.name" type="text" class="contact-form__input" required />
+                </div>
+                <div class="contact-form__group">
+                  <label class="contact-form__label" for="email">{{ $t('contact.formEmail') }}</label>
+                  <input id="email" v-model="form.email" type="email" class="contact-form__input" required />
+                </div>
               </div>
 
               <div class="contact-form__group">
@@ -97,31 +68,19 @@
 
               <div class="contact-form__group">
                 <label class="contact-form__label" for="message">{{ $t('contact.formMessage') }}</label>
-                <textarea
-                  id="message"
-                  v-model="form.message"
-                  class="contact-form__input contact-form__textarea"
-                  :placeholder="$t('contact.formMessage')"
-                  rows="5"
-                  required
-                ></textarea>
+                <textarea id="message" v-model="form.message" class="contact-form__input contact-form__textarea" rows="5" required></textarea>
               </div>
 
               <button type="submit" class="btn btn--primary btn--lg contact-form__submit" :disabled="isSubmitting">
                 <template v-if="isSubmitting">
                   <span class="contact-form__spinner"></span>
                 </template>
-                <template v-else>
-                  {{ $t('contact.formSubmit') }}
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
-                  </svg>
-                </template>
+                <template v-else>{{ $t('contact.formSubmit') }}</template>
               </button>
 
               <Transition name="fade">
                 <p v-if="isSuccess" class="contact-form__success">
-                  ✅ {{ $t('contact.formSuccess') }}
+                  ✓ {{ $t('contact.formSuccess') }}
                 </p>
               </Transition>
             </form>
@@ -135,88 +94,58 @@
 <script setup lang="ts">
 useHead({
   title: '联系我们 - 心鉴智能科技工作室',
-  meta: [{ name: 'description', content: '联系心鉴智能科技工作室，探讨商务合作、投资咨询或加入我们的团队。' }],
+  meta: [{ name: 'description', content: '联系心鉴智能科技工作室。' }],
 })
 
-const form = reactive({
-  name: '',
-  email: '',
-  subject: 'cooperation',
-  message: '',
-})
-
+const form = reactive({ name: '', email: '', subject: 'cooperation', message: '' })
 const isSubmitting = ref(false)
 const isSuccess = ref(false)
 
 async function handleSubmit() {
   isSubmitting.value = true
-  // Simulate form submission
-  await new Promise((resolve) => setTimeout(resolve, 1500))
+  await new Promise(r => setTimeout(r, 1500))
   isSubmitting.value = false
   isSuccess.value = true
-
-  // Reset form
-  form.name = ''
-  form.email = ''
-  form.subject = 'cooperation'
-  form.message = ''
-
-  setTimeout(() => {
-    isSuccess.value = false
-  }, 5000)
+  form.name = ''; form.email = ''; form.subject = 'cooperation'; form.message = ''
+  setTimeout(() => { isSuccess.value = false }, 5000)
 }
 </script>
 
 <style scoped>
-/* Hero */
 .contact-hero {
-  position: relative;
-  padding: var(--space-24) 0 var(--space-16);
-  text-align: center;
-  overflow: hidden;
-}
-
-.contact-hero__bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, var(--surface-light) 0%, var(--surface-white) 100%);
-}
-
-.contact-hero__content {
-  position: relative;
-  z-index: 1;
+  padding: 120px 0 80px;
+  background: var(--surface-light);
 }
 
 .contact-hero__title {
   font-size: var(--text-5xl);
-  font-weight: 800;
+  font-weight: 500;
   margin-bottom: var(--space-4);
+  letter-spacing: -0.02em;
 }
 
 .contact-hero__subtitle {
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   color: var(--text-secondary);
 }
 
-/* Grid */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: var(--space-16);
+  grid-template-columns: 1fr 1.3fr;
+  gap: 80px;
   align-items: start;
 }
 
-/* Info */
 .contact-info__title {
-  font-size: var(--text-2xl);
-  font-weight: 700;
+  font-size: var(--text-xl);
+  font-weight: 600;
   margin-bottom: var(--space-8);
 }
 
 .contact-info__items {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-5);
 }
 
 .contact-info__item {
@@ -224,25 +153,17 @@ async function handleSubmit() {
   align-items: center;
   gap: var(--space-4);
   padding: var(--space-4);
-  border-radius: var(--radius-lg);
-  transition: all var(--transition-fast);
+  color: var(--text-primary);
   text-decoration: none;
-  color: inherit;
+  transition: background var(--transition-fast);
 }
 
 .contact-info__item:hover {
   background: var(--surface-light);
 }
 
-.contact-info__icon {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md);
-  background: var(--brand-primary-50);
-  color: var(--brand-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.contact-info__item svg {
+  color: var(--text-muted);
   flex-shrink: 0;
 }
 
@@ -253,29 +174,19 @@ async function handleSubmit() {
 }
 
 .contact-info__value {
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.contact-info__decor {
-  margin-top: var(--space-12);
-  display: flex;
-  justify-content: center;
+  font-weight: 500;
 }
 
 /* Form */
 .contact-form-wrapper {
-  background: var(--surface-white);
-  border-radius: var(--radius-xl);
-  padding: var(--space-10);
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border-light);
+  background: var(--surface-light);
+  padding: 48px;
 }
 
-.contact-form__title {
-  font-size: var(--text-2xl);
-  font-weight: 700;
-  margin-bottom: var(--space-8);
+.contact-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
 }
 
 .contact-form__group {
@@ -285,35 +196,32 @@ async function handleSubmit() {
 .contact-form__label {
   display: block;
   font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--text-primary);
+  font-weight: 500;
   margin-bottom: var(--space-2);
 }
 
 .contact-form__input {
   width: 100%;
-  padding: var(--space-3) var(--space-4);
-  border: 1.5px solid var(--border-light);
-  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  border: 1px solid var(--border-light);
   font-size: var(--text-base);
   font-family: var(--font-sans);
-  transition: all var(--transition-fast);
+  transition: border-color var(--transition-fast);
   background: var(--surface-white);
   color: var(--text-primary);
 }
 
 .contact-form__input:focus {
   outline: none;
-  border-color: var(--brand-primary);
-  box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
+  border-color: var(--text-primary);
 }
 
 .contact-form__select {
   appearance: none;
   cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 12px center;
+  background-position: right 14px center;
   padding-right: 40px;
 }
 
@@ -324,13 +232,12 @@ async function handleSubmit() {
 
 .contact-form__submit {
   width: 100%;
-  margin-top: var(--space-4);
+  margin-top: var(--space-2);
 }
 
 .contact-form__spinner {
-  width: 20px;
-  height: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  width: 18px; height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
   border-top-color: white;
   border-radius: 50%;
   animation: spin-slow 0.8s linear infinite;
@@ -341,33 +248,17 @@ async function handleSubmit() {
   padding: var(--space-3) var(--space-4);
   background: var(--safe-green-bg);
   color: var(--safe-green);
-  border-radius: var(--radius-md);
   font-weight: 500;
   text-align: center;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
+.fade-enter-active, .fade-leave-active { transition: opacity 0.3s; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
 
 @media (max-width: 768px) {
-  .contact-hero__title {
-    font-size: var(--text-3xl);
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-10);
-  }
-
-  .contact-form-wrapper {
-    padding: var(--space-6);
-  }
+  .contact-hero__title { font-size: var(--text-3xl); }
+  .contact-grid { grid-template-columns: 1fr; gap: var(--space-10); }
+  .contact-form-wrapper { padding: var(--space-6); }
+  .contact-form__row { grid-template-columns: 1fr; }
 }
 </style>

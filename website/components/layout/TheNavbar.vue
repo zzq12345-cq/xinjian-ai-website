@@ -3,19 +3,6 @@
     <div class="navbar__inner container">
       <!-- Logo -->
       <NuxtLink :to="localePath('/')" class="navbar__logo" @click="closeMobile">
-        <div class="navbar__logo-icon">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-            <circle cx="18" cy="18" r="18" fill="url(#logo-gradient)" />
-            <path d="M18 10c-2.5-2.5-6.5-2.5-9 0s-2.5 6.5 0 9l9 9 9-9c2.5-2.5 2.5-6.5 0-9s-6.5-2.5-9 0z" fill="white" opacity="0.9" />
-            <path d="M12 18h3l2-4 2 8 2-6 2 2h3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-            <defs>
-              <linearGradient id="logo-gradient" x1="0" y1="0" x2="36" y2="36">
-                <stop offset="0%" stop-color="#0891B2" />
-                <stop offset="100%" stop-color="#14B8A6" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
         <span class="navbar__logo-text">心鉴智能</span>
       </NuxtLink>
 
@@ -34,28 +21,24 @@
 
       <!-- Right Actions -->
       <div class="navbar__actions">
-        <!-- Language Switcher -->
-        <button class="navbar__lang-btn" @click="toggleLocale" :title="locale === 'zh' ? 'Switch to English' : '切换到中文'">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-          </svg>
-          <span>{{ locale === 'zh' ? 'EN' : '中文' }}</span>
+        <button class="navbar__lang-btn" @click="toggleLocale">
+          {{ locale === 'zh' ? 'EN' : '中文' }}
         </button>
-
-        <!-- CTA Button (Desktop) -->
-        <NuxtLink :to="localePath('/contact')" class="btn btn--primary navbar__cta">
+        <NuxtLink :to="localePath('/contact')" class="navbar__contact-link">
           {{ $t('nav.contact') }}
         </NuxtLink>
 
         <!-- Mobile Hamburger -->
-        <button class="navbar__hamburger" @click="toggleMobile" :aria-label="isMobileOpen ? 'Close menu' : 'Open menu'">
+        <button class="navbar__hamburger" @click="toggleMobile">
           <span class="navbar__hamburger-line"></span>
           <span class="navbar__hamburger-line"></span>
           <span class="navbar__hamburger-line"></span>
         </button>
       </div>
     </div>
+
+    <!-- Bottom border line -->
+    <div class="navbar__border"></div>
 
     <!-- Mobile Menu -->
     <Transition name="slide-down">
@@ -69,10 +52,11 @@
         >
           {{ $t(link.label) }}
         </NuxtLink>
+        <div class="navbar__mobile-divider"></div>
         <button class="navbar__mobile-lang" @click="toggleLocale">
-          🌐 {{ locale === 'zh' ? 'Switch to English' : '切换到中文' }}
+          {{ locale === 'zh' ? 'Switch to English' : '切换到中文' }}
         </button>
-        <NuxtLink :to="localePath('/contact')" class="btn btn--primary navbar__mobile-cta" @click="closeMobile">
+        <NuxtLink :to="localePath('/contact')" class="navbar__mobile-contact" @click="closeMobile">
           {{ $t('nav.contact') }}
         </NuxtLink>
       </div>
@@ -108,7 +92,7 @@ function closeMobile() {
 
 onMounted(() => {
   window.addEventListener('scroll', () => {
-    isScrolled.value = window.scrollY > 20
+    isScrolled.value = window.scrollY > 10
   })
 })
 </script>
@@ -121,15 +105,21 @@ onMounted(() => {
   right: 0;
   z-index: 1000;
   height: var(--navbar-height);
-  transition: all var(--transition-base);
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: var(--surface-white);
+  transition: box-shadow var(--transition-base);
 }
 
 .navbar--scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 0 var(--border-light);
+}
+
+.navbar__border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--border-light);
 }
 
 .navbar__inner {
@@ -139,77 +129,98 @@ onMounted(() => {
   height: 100%;
 }
 
-/* Logo */
+/* Logo — 华为风格纯文字 */
 .navbar__logo {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
   text-decoration: none;
   color: var(--text-primary);
 }
 
 .navbar__logo-text {
-  font-size: var(--text-xl);
-  font-weight: 700;
+  font-size: 1.375rem;
+  font-weight: 600;
   font-family: var(--font-display);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
 }
 
-/* Links */
+/* Links — 华为风格简约 */
 .navbar__links {
   display: flex;
   align-items: center;
-  gap: var(--space-1);
+  gap: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .navbar__link {
-  padding: var(--space-2) var(--space-4);
-  color: var(--text-secondary);
-  font-weight: 500;
-  font-size: var(--text-sm);
-  border-radius: var(--radius-sm);
-  transition: all var(--transition-fast);
+  padding: 0 var(--space-5);
+  color: var(--text-primary);
+  font-weight: 400;
+  font-size: var(--text-base);
+  transition: color var(--transition-fast);
   text-decoration: none;
+  height: var(--navbar-height);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: var(--space-5);
+  right: var(--space-5);
+  height: 2px;
+  background: var(--brand-primary);
+  transform: scaleX(0);
+  transition: transform var(--transition-base);
 }
 
 .navbar__link:hover {
   color: var(--brand-primary);
-  background: var(--brand-primary-50);
+}
+
+.navbar__link:hover::after,
+.navbar__link--active::after {
+  transform: scaleX(1);
 }
 
 .navbar__link--active {
   color: var(--brand-primary);
-  background: var(--brand-primary-50);
 }
 
 /* Actions */
 .navbar__actions {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-5);
 }
 
 .navbar__lang-btn {
-  display: flex;
-  align-items: center;
-  gap: var(--space-1);
-  padding: var(--space-2) var(--space-3);
   color: var(--text-secondary);
   font-size: var(--text-sm);
-  font-weight: 500;
-  border-radius: var(--radius-sm);
-  transition: all var(--transition-fast);
+  font-weight: 400;
   cursor: pointer;
+  padding: var(--space-1) var(--space-2);
+  transition: color var(--transition-fast);
 }
 
 .navbar__lang-btn:hover {
   color: var(--brand-primary);
-  background: var(--brand-primary-50);
 }
 
-.navbar__cta {
-  padding: var(--space-2) var(--space-5);
-  font-size: var(--text-sm);
+.navbar__contact-link {
+  color: var(--text-primary);
+  font-size: var(--text-base);
+  font-weight: 400;
+  transition: color var(--transition-fast);
+}
+
+.navbar__contact-link:hover {
+  color: var(--brand-primary);
 }
 
 /* Hamburger */
@@ -223,15 +234,14 @@ onMounted(() => {
 
 .navbar__hamburger-line {
   display: block;
-  width: 22px;
-  height: 2px;
+  width: 20px;
+  height: 1.5px;
   background: var(--text-primary);
-  border-radius: 2px;
   transition: all var(--transition-base);
 }
 
 .navbar--open .navbar__hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(4px, 4px);
 }
 
 .navbar--open .navbar__hamburger-line:nth-child(2) {
@@ -250,38 +260,39 @@ onMounted(() => {
   right: 0;
   background: var(--surface-white);
   border-top: 1px solid var(--border-light);
-  box-shadow: var(--shadow-lg);
-  padding: var(--space-4) var(--space-6);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  padding: var(--space-6);
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
 }
 
 .navbar__mobile-link {
-  padding: var(--space-3) var(--space-4);
+  padding: var(--space-4) 0;
   color: var(--text-primary);
-  font-weight: 500;
-  border-radius: var(--radius-sm);
+  font-weight: 400;
+  font-size: var(--text-lg);
   text-decoration: none;
-  transition: all var(--transition-fast);
+  border-bottom: 1px solid var(--border-light);
 }
 
-.navbar__mobile-link:hover {
-  background: var(--surface-light);
-  color: var(--brand-primary);
+.navbar__mobile-divider {
+  height: 1px;
+  background: var(--border-light);
+  margin: var(--space-2) 0;
 }
 
 .navbar__mobile-lang {
-  padding: var(--space-3) var(--space-4);
+  padding: var(--space-3) 0;
   color: var(--text-secondary);
   font-size: var(--text-sm);
   text-align: left;
   cursor: pointer;
 }
 
-.navbar__mobile-cta {
-  margin-top: var(--space-2);
-  text-align: center;
+.navbar__mobile-contact {
+  padding: var(--space-3) 0;
+  color: var(--brand-primary);
+  font-weight: 500;
 }
 
 /* Transition */
@@ -296,10 +307,9 @@ onMounted(() => {
   transform: translateY(-10px);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .navbar__links,
-  .navbar__cta {
+  .navbar__contact-link {
     display: none;
   }
 
