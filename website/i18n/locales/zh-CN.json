@@ -1,0 +1,163 @@
+{
+  "nav": {
+    "home": "首页",
+    "product": "产品介绍",
+    "team": "团队",
+    "news": "动态",
+    "contact": "联系我们"
+  },
+  "hero": {
+    "badge": "AI心音检测领导者",
+    "title": "用AI守护",
+    "titleHighlight": "每一次心跳",
+    "subtitle": "心音智鉴 —— 家庭级心音检测系统，30秒即知心脏健康状况。边缘AI推理，数据不出家门，让关爱不再受距离阻隔。",
+    "cta": "了解产品",
+    "ctaSecondary": "联系我们"
+  },
+  "trust": {
+    "accuracy": "AI准确率",
+    "detection": "快速检测",
+    "detectionUnit": "秒",
+    "privacy": "隐私保护",
+    "privacyDesc": "本地推理",
+    "team": "专业团队",
+    "teamUnit": "人"
+  },
+  "pain": {
+    "badge": "我们理解您的困扰",
+    "title": "家人的心脏健康，不该靠猜",
+    "subtitle": "传统心脏检查门槛高、耗时长，子女远在他乡更是鞭长莫及。心音智鉴，让一切变得简单。",
+    "pain1Title": "就医繁琐",
+    "pain1Desc": "挂号排队、抽血化验，老人独自去医院困难重重",
+    "pain1Solution": "居家30秒自检",
+    "pain2Title": "远程焦虑",
+    "pain2Desc": "子女在外地工作，父母身体不适只能干着急",
+    "pain2Solution": "小程序实时查看报告",
+    "pain3Title": "设备积灰",
+    "pain3Desc": "智能手环充电复杂、数据看不懂，买了等于白买",
+    "pain3Solution": "语音引导，老人轻松用"
+  },
+  "features": {
+    "badge": "核心优势",
+    "title": "为什么选择心音智鉴",
+    "subtitle": "三大核心技术，打造家庭心脏健康管理新标准",
+    "f1Title": "边缘AI推理",
+    "f1Desc": "深度学习模型在树莓派本地运行，心音数据不上传云端，真正保护您的隐私。5秒内完成AI分析。",
+    "f2Title": "微信小程序",
+    "f2Desc": "无需下载App，微信扫码即用。检测报告、健康档案、AI健康助手，一个小程序全搞定。",
+    "f3Title": "长期健康档案",
+    "f3Desc": "每次检测自动归档，生成健康趋势图。家人可远程查看，让关爱跨越距离。"
+  },
+  "howItWorks": {
+    "badge": "使用流程",
+    "title": "简单四步，守护心脏健康",
+    "step1Title": "扫码连接",
+    "step1Desc": "微信扫描设备二维码，一秒连接",
+    "step2Title": "贴胸检测",
+    "step2Desc": "将听诊器放置左胸，安静等待30秒",
+    "step3Title": "AI分析",
+    "step3Desc": "深度学习模型实时分析心音信号",
+    "step4Title": "查看报告",
+    "step4Desc": "三级风险评估，附专业健康建议"
+  },
+  "cta": {
+    "title": "让AI守护家人的心脏健康",
+    "subtitle": "从今天开始，给爱一份可视化的保险",
+    "button": "立即咨询"
+  },
+  "product": {
+    "heroTitle": "心音智鉴",
+    "heroSubtitle": "家庭心脏健康管家",
+    "heroDesc": "集心音采集、AI分析、健康档案于一体的智能检测系统",
+    "featuresTitle": "核心功能",
+    "featuresSubtitle": "六大功能模块，全方位守护心脏健康",
+    "f1Title": "AI心音分析",
+    "f1Desc": "基于深度学习的心音分类模型，支持识别正常心音、收缩期杂音、舒张期杂音、额外心音等多种类型",
+    "f2Title": "实时波形显示",
+    "f2Desc": "30fps高刷新率心音波形实时呈现，让您直观感受心脏跳动的每一个瞬间",
+    "f3Title": "健康档案管理",
+    "f3Desc": "检测记录自动云端归档，支持长期健康趋势追踪和历史对比分析",
+    "f4Title": "AI健康助手",
+    "f4Desc": "集成大语言模型的智能问答系统，随时解答心脏健康相关问题",
+    "f5Title": "语音交互引导",
+    "f5Desc": "树莓派设备内置语音助手，温和播报操作指引，老人无需查看手机",
+    "f6Title": "家庭共享报告",
+    "f6Desc": "一键分享检测报告到家庭群，让远方的子女安心，让家人之间多一份温暖",
+    "archTitle": "技术架构",
+    "archSubtitle": "三层架构，安全可靠",
+    "archDevice": "智能终端",
+    "archDeviceDesc": "树莓派 + 电子听诊器 + 触摸屏",
+    "archEdge": "边缘计算",
+    "archEdgeDesc": "FastAPI + PyTorch 本地推理",
+    "archCloud": "云端服务",
+    "archCloudDesc": "Supabase 数据存储 + 认证",
+    "archApp": "用户端",
+    "archAppDesc": "微信小程序 + AI助手",
+    "flowTitle": "检测流程",
+    "flowSubtitle": "30秒完成一次专业级心音检测",
+    "specsTitle": "技术参数",
+    "spec1": "AI分析准确率",
+    "spec2": "单次检测时长",
+    "spec3": "AI推理时间",
+    "spec4": "波形刷新率",
+    "spec5": "数据安全",
+    "spec5Value": "本地推理，端到端加密",
+    "spec6": "连接方式",
+    "spec6Value": "WiFi局域网 + 微信扫码"
+  },
+  "team": {
+    "heroTitle": "我们是心鉴智能",
+    "heroSubtitle": "一群用技术温暖家庭健康的年轻人",
+    "deptTech": "技术团队",
+    "deptMarket": "市场团队",
+    "deptOps": "运营团队",
+    "cultureTitle": "团队文化",
+    "mission": "使命",
+    "missionText": "让每个家庭都能享受到AI驱动的心脏健康守护",
+    "vision": "愿景",
+    "visionText": "成为家庭健康科技领域的创新引领者",
+    "values": "价值观",
+    "valuesText": "技术为善 · 用户至上 · 开放创新 · 温暖同行",
+    "joinTitle": "加入我们",
+    "joinDesc": "如果你也相信技术可以温暖生活，欢迎与我们同行",
+    "joinButton": "发送简历"
+  },
+  "news": {
+    "heroTitle": "最新动态",
+    "heroSubtitle": "了解心鉴智能的最新进展",
+    "readMore": "阅读全文",
+    "categories": {
+      "milestone": "里程碑",
+      "product": "产品",
+      "tech": "技术"
+    }
+  },
+  "contact": {
+    "heroTitle": "联系我们",
+    "heroSubtitle": "期待与您的交流与合作",
+    "infoTitle": "联系方式",
+    "email": "邮箱",
+    "phone": "电话",
+    "formTitle": "在线留言",
+    "formName": "您的姓名",
+    "formEmail": "您的邮箱",
+    "formSubject": "主题",
+    "formMessage": "留言内容",
+    "formSubmit": "提交留言",
+    "formSuccess": "留言已提交，我们会尽快回复！",
+    "subjects": {
+      "cooperation": "商务合作",
+      "investment": "投资咨询",
+      "join": "加入团队",
+      "other": "其他"
+    }
+  },
+  "footer": {
+    "desc": "用AI守护每一次心跳",
+    "quickLinks": "快速链接",
+    "contactUs": "联系我们",
+    "followUs": "关注我们",
+    "copyright": "© 2026 心鉴智能科技工作室 版权所有",
+    "icp": "ICP备案号待申请"
+  }
+}

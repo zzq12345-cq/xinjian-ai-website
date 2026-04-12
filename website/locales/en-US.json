@@ -1,0 +1,163 @@
+{
+  "nav": {
+    "home": "Home",
+    "product": "Product",
+    "team": "Team",
+    "news": "News",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "AI Heart Sound Detection Leader",
+    "title": "Guarding Every",
+    "titleHighlight": "Heartbeat with AI",
+    "subtitle": "HeartSound — A home-grade heart sound detection system. 30-second check for cardiac health. Edge AI inference keeps your data private. Let care transcend distance.",
+    "cta": "Explore Product",
+    "ctaSecondary": "Contact Us"
+  },
+  "trust": {
+    "accuracy": "AI Accuracy",
+    "detection": "Quick Detection",
+    "detectionUnit": "sec",
+    "privacy": "Privacy First",
+    "privacyDesc": "Local Inference",
+    "team": "Expert Team",
+    "teamUnit": "members"
+  },
+  "pain": {
+    "badge": "We Understand Your Concerns",
+    "title": "Family Heart Health Shouldn't Be a Guessing Game",
+    "subtitle": "Traditional cardiac check-ups are expensive, time-consuming, and inaccessible for elderly parents living alone. HeartSound changes everything.",
+    "pain1Title": "Complex Hospital Visits",
+    "pain1Desc": "Long queues, blood tests, and complicated procedures — overwhelming for elderly parents alone",
+    "pain1Solution": "30-sec home self-check",
+    "pain2Title": "Remote Anxiety",
+    "pain2Desc": "Working far from home, you can only worry when parents feel unwell",
+    "pain2Solution": "Real-time reports via mini-app",
+    "pain3Title": "Unused Devices",
+    "pain3Desc": "Smart bands with complex charging and confusing data end up in drawers",
+    "pain3Solution": "Voice-guided, senior-friendly"
+  },
+  "features": {
+    "badge": "Core Advantages",
+    "title": "Why Choose HeartSound",
+    "subtitle": "Three core technologies setting new standards for home cardiac health management",
+    "f1Title": "Edge AI Inference",
+    "f1Desc": "Deep learning models run locally on Raspberry Pi. Heart sound data never leaves your home. Analysis complete within 5 seconds.",
+    "f2Title": "WeChat Mini Program",
+    "f2Desc": "No app download needed. Scan to use instantly. Detection reports, health records, and AI health assistant — all in one mini program.",
+    "f3Title": "Long-term Health Records",
+    "f3Desc": "Each detection is automatically archived with health trend charts. Family members can view remotely, keeping care connected across distances."
+  },
+  "howItWorks": {
+    "badge": "How It Works",
+    "title": "Four Simple Steps to Guard Heart Health",
+    "step1Title": "Scan to Connect",
+    "step1Desc": "Scan the device QR code via WeChat, connect in one second",
+    "step2Title": "Place & Detect",
+    "step2Desc": "Place the stethoscope on the left chest, wait quietly for 30 seconds",
+    "step3Title": "AI Analysis",
+    "step3Desc": "Deep learning model analyzes heart sound signals in real time",
+    "step4Title": "View Report",
+    "step4Desc": "Three-level risk assessment with professional health advice"
+  },
+  "cta": {
+    "title": "Let AI Guard Your Family's Heart Health",
+    "subtitle": "Start today — give love a visible insurance",
+    "button": "Get in Touch"
+  },
+  "product": {
+    "heroTitle": "HeartSound",
+    "heroSubtitle": "Your Home Cardiac Health Guardian",
+    "heroDesc": "An intelligent detection system integrating heart sound collection, AI analysis, and health records",
+    "featuresTitle": "Core Features",
+    "featuresSubtitle": "Six functional modules for comprehensive cardiac health protection",
+    "f1Title": "AI Heart Sound Analysis",
+    "f1Desc": "Deep learning-based heart sound classification model, capable of identifying normal heart sounds, systolic murmurs, diastolic murmurs, extra heart sounds, and more",
+    "f2Title": "Real-time Waveform Display",
+    "f2Desc": "30fps high-refresh-rate heart sound waveform visualization, letting you see every heartbeat moment",
+    "f3Title": "Health Record Management",
+    "f3Desc": "Detection records automatically archived in the cloud, supporting long-term health trend tracking and historical comparison",
+    "f4Title": "AI Health Assistant",
+    "f4Desc": "LLM-powered intelligent Q&A system, ready to answer heart health questions anytime",
+    "f5Title": "Voice Interaction Guide",
+    "f5Desc": "Built-in voice assistant on Raspberry Pi device, gently announcing operational guidance — no phone needed for seniors",
+    "f6Title": "Family Report Sharing",
+    "f6Desc": "One-click share detection reports to family chat groups, giving distant children peace of mind",
+    "archTitle": "Technical Architecture",
+    "archSubtitle": "Three-layer architecture, secure and reliable",
+    "archDevice": "Smart Terminal",
+    "archDeviceDesc": "Raspberry Pi + Electronic Stethoscope + Touchscreen",
+    "archEdge": "Edge Computing",
+    "archEdgeDesc": "FastAPI + PyTorch Local Inference",
+    "archCloud": "Cloud Services",
+    "archCloudDesc": "Supabase Data Storage + Authentication",
+    "archApp": "User Client",
+    "archAppDesc": "WeChat Mini Program + AI Assistant",
+    "flowTitle": "Detection Process",
+    "flowSubtitle": "Complete a professional-grade heart sound detection in 30 seconds",
+    "specsTitle": "Technical Specifications",
+    "spec1": "AI Analysis Accuracy",
+    "spec2": "Single Detection Duration",
+    "spec3": "AI Inference Time",
+    "spec4": "Waveform Refresh Rate",
+    "spec5": "Data Security",
+    "spec5Value": "Local inference, end-to-end encryption",
+    "spec6": "Connection Method",
+    "spec6Value": "WiFi LAN + WeChat QR Scan"
+  },
+  "team": {
+    "heroTitle": "We Are XinJian AI",
+    "heroSubtitle": "A team of young innovators using technology to warm family health",
+    "deptTech": "Technology",
+    "deptMarket": "Marketing",
+    "deptOps": "Operations",
+    "cultureTitle": "Our Culture",
+    "mission": "Mission",
+    "missionText": "Enable every family to enjoy AI-driven cardiac health protection",
+    "vision": "Vision",
+    "visionText": "Become the innovation leader in the family health technology space",
+    "values": "Values",
+    "valuesText": "Tech for Good · User First · Open Innovation · Walk Together with Warmth",
+    "joinTitle": "Join Us",
+    "joinDesc": "If you also believe technology can warm lives, we welcome you to join us",
+    "joinButton": "Send Resume"
+  },
+  "news": {
+    "heroTitle": "Latest News",
+    "heroSubtitle": "Stay updated with XinJian AI's latest developments",
+    "readMore": "Read More",
+    "categories": {
+      "milestone": "Milestone",
+      "product": "Product",
+      "tech": "Technology"
+    }
+  },
+  "contact": {
+    "heroTitle": "Contact Us",
+    "heroSubtitle": "We look forward to your communication and collaboration",
+    "infoTitle": "Contact Information",
+    "email": "Email",
+    "phone": "Phone",
+    "formTitle": "Send a Message",
+    "formName": "Your Name",
+    "formEmail": "Your Email",
+    "formSubject": "Subject",
+    "formMessage": "Message",
+    "formSubmit": "Submit",
+    "formSuccess": "Message sent! We'll get back to you soon.",
+    "subjects": {
+      "cooperation": "Business Cooperation",
+      "investment": "Investment Inquiry",
+      "join": "Join Our Team",
+      "other": "Other"
+    }
+  },
+  "footer": {
+    "desc": "Guarding Every Heartbeat with AI",
+    "quickLinks": "Quick Links",
+    "contactUs": "Contact Us",
+    "followUs": "Follow Us",
+    "copyright": "© 2026 XinJian AI Technology Studio. All rights reserved.",
+    "icp": "ICP Filing Pending"
+  }
+}
