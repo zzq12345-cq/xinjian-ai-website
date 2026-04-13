@@ -5,11 +5,12 @@
       <div class="hero__bg-solid"></div>
       <!-- 品牌色竖条装饰 -->
       <div class="hero__accent-bar"></div>
-      <!-- 心音波形签名动画 — 贯穿背景的视觉记忆点 -->
-      <svg class="hero__waveform" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path class="hero__waveform-path" d="M0,100 L200,100 L240,100 L260,60 L280,140 L300,30 L320,170 L340,80 L360,120 L380,100 L600,100 L640,100 L660,70 L680,130 L700,40 L720,160 L740,90 L760,110 L780,100 L1000,100 L1040,100 L1060,65 L1080,135 L1100,35 L1120,165 L1140,85 L1160,115 L1180,100 L1440,100" />
-      </svg>
     </div>
+
+    <!-- 心音波形签名动画 — 独立层级，不被内容遮挡 -->
+    <svg class="hero__waveform" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path class="hero__waveform-path" d="M0,100 L200,100 L240,100 L260,60 L280,140 L300,30 L320,170 L340,80 L360,120 L380,100 L600,100 L640,100 L660,70 L680,130 L700,40 L720,160 L740,90 L760,110 L780,100 L1000,100 L1040,100 L1060,65 L1080,135 L1100,35 L1120,165 L1140,85 L1160,115 L1180,100 L1440,100" />
+    </svg>
 
     <div class="container hero__content">
       <div class="hero__text">
@@ -99,15 +100,16 @@ const localePath = useLocalePath()
   background: var(--brand-primary);
 }
 
-/* 心音波形 — 签名式视觉记忆点 */
+/* 心音波形 — 签名式视觉记忆点，独立于 bg 层 */
 .hero__waveform {
   position: absolute;
-  bottom: 20%;
+  top: 45%;
   left: 0;
   width: 100%;
   height: 120px;
   opacity: 0.15;
   pointer-events: none;
+  z-index: 0;
 }
 
 .hero__waveform-path {
