@@ -62,11 +62,18 @@
           </div>
         </div>
 
-        <!-- Patent & Copyright Gallery -->
-        <div class="ip-gallery stagger-children">
-          <div v-for="cert in ipCertificates" :key="cert.img" class="ip-card scroll-reveal" @click="openLightbox(cert)">
-            <img :src="cert.img" :alt="cert.label" loading="lazy" />
-            <p class="ip-card__label">{{ cert.label }}</p>
+        <!-- Certificate Marquee -->
+        <div class="ip-marquee scroll-reveal">
+          <div class="ip-marquee__track">
+            <div v-for="cert in allCertificates" :key="cert.img" class="ip-card" @click="openLightbox(cert)">
+              <img :src="cert.img" :alt="cert.label" loading="lazy" />
+              <p class="ip-card__label">{{ cert.label }}</p>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div v-for="cert in allCertificates" :key="cert.img + '-dup'" class="ip-card" @click="openLightbox(cert)">
+              <img :src="cert.img" :alt="cert.label" loading="lazy" />
+              <p class="ip-card__label">{{ cert.label }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -159,13 +166,25 @@ const departments = [
   },
 ]
 
-const ipCertificates = [
+const allCertificates = [
+  // 专利 (5)
   { img: '/images/credentials/patent-heart-detector.jpeg', label: '外观设计专利：心音检测仪' },
   { img: '/images/credentials/patent-recyclable-box.jpeg', label: '实用新型专利：可循环外卖盒' },
   { img: '/images/credentials/patent-ev-charging.jpeg', label: '实用新型专利：新能源充电系统' },
-  { img: '/images/credentials/copyright-heart-detection-cert.jpeg', label: '软著：心音异常检测平台' },
-  { img: '/images/credentials/copyright-ml-training-cert.jpeg', label: '软著：机器学习模型训练平台' },
-  { img: '/images/credentials/paper-ei-1-detail.jpeg', label: 'EI会议论文' },
+  { img: '/images/credentials/patent-road-detection.jpeg', label: '外观设计专利：道路颠簸检测' },
+  { img: '/images/credentials/patent-motherboard-welder.jpeg', label: '外观设计专利：计算机主板焊接器' },
+  // 软著 (4)
+  { img: '/images/credentials/copyright-heart-detection.jpeg', label: '软著：心音异常检测平台' },
+  { img: '/images/credentials/copyright-heart-detection-cert.jpeg', label: '软著证书：心音异常检测平台' },
+  { img: '/images/credentials/copyright-ml-training.jpeg', label: '软著：机器学习模型训练平台' },
+  { img: '/images/credentials/copyright-ml-training-cert.jpeg', label: '软著证书：机器学习模型训练平台' },
+  // 论文 (6)
+  { img: '/images/credentials/paper-ei-1.jpeg', label: 'EI会议论文 (1)' },
+  { img: '/images/credentials/paper-ei-1-detail.jpeg', label: 'EI会议论文详情 (1)' },
+  { img: '/images/credentials/paper-ei-2.jpeg', label: 'EI会议论文 (2)' },
+  { img: '/images/credentials/paper-ei-2-detail.jpeg', label: 'EI会议论文详情 (2)' },
+  { img: '/images/credentials/paper-ei-3.jpeg', label: 'EI会议论文 (3)' },
+  { img: '/images/credentials/paper-core-journal.jpeg', label: '中国核心期刊论文' },
 ]
 
 
@@ -323,14 +342,33 @@ const ipCertificates = [
   color: var(--text-muted);
 }
 
-/* IP Gallery */
-.ip-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-5);
+/* IP Marquee */
+.ip-marquee {
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.ip-marquee__track {
+  display: flex;
+  gap: 20px;
+  animation: marquee-scroll 60s linear infinite;
+  width: max-content;
+}
+
+.ip-marquee:hover .ip-marquee__track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .ip-card {
+  flex-shrink: 0;
+  width: 280px;
   background: var(--surface-white);
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -341,29 +379,27 @@ const ipCertificates = [
 
 .ip-card:hover {
   box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
 }
 
 .ip-card img {
   width: 100%;
-  height: 320px;
+  height: 360px;
   object-fit: contain;
   background: #fff;
-  padding: 8px;
-  transition: transform 0.4s ease;
-}
-
-.ip-card:hover img {
-  transform: scale(1.03);
+  padding: 12px;
 }
 
 .ip-card__label {
-  padding: 12px 16px;
-  font-size: var(--text-sm);
+  padding: 10px 14px;
+  font-size: var(--text-xs);
   color: var(--text-secondary);
   font-weight: 500;
   text-align: center;
   border-top: 1px solid var(--border-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 
@@ -451,8 +487,8 @@ const ipCertificates = [
 @media (max-width: 768px) {
   .team-hero__title { font-size: var(--text-3xl); }
   .ip-stats { grid-template-columns: 1fr; }
-  .ip-gallery { grid-template-columns: 1fr; }
-  .ip-card img { height: 260px; }
+  .ip-card { width: 220px; }
+  .ip-card img { height: 280px; }
   .culture-grid { grid-template-columns: 1fr; }
 }
 </style>

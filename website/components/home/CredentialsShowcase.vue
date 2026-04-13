@@ -14,30 +14,17 @@
         </div>
       </div>
 
-      <!-- Certificate Gallery -->
-      <div class="credentials__gallery">
-        <div class="credentials__row scroll-reveal">
-          <div class="credentials__card credentials__card--wide">
-            <img src="/images/credentials/business-license.jpeg" :alt="$t('credentials.license')" loading="lazy" />
-            <div class="credentials__card-label">{{ $t('credentials.license') }}</div>
+      <!-- Auto-scrolling Certificate Marquee -->
+      <div class="credentials__marquee scroll-reveal">
+        <div class="credentials__track">
+          <div v-for="cert in allCertificates" :key="cert.img" class="credentials__card">
+            <img :src="cert.img" :alt="cert.label" loading="lazy" />
+            <div class="credentials__card-label">{{ cert.label }}</div>
           </div>
-          <div class="credentials__card">
-            <img src="/images/credentials/patent-heart-detector.jpeg" :alt="$t('credentials.patentDesign')" loading="lazy" />
-            <div class="credentials__card-label">{{ $t('credentials.patentDesign') }}</div>
-          </div>
-        </div>
-        <div class="credentials__row credentials__row--3 scroll-reveal" style="animation-delay: 0.1s;">
-          <div class="credentials__card">
-            <img src="/images/credentials/copyright-heart-detection-cert.jpeg" :alt="$t('credentials.copyright1')" loading="lazy" />
-            <div class="credentials__card-label">{{ $t('credentials.copyright1') }}</div>
-          </div>
-          <div class="credentials__card">
-            <img src="/images/credentials/copyright-ml-training-cert.jpeg" :alt="$t('credentials.copyright2')" loading="lazy" />
-            <div class="credentials__card-label">{{ $t('credentials.copyright2') }}</div>
-          </div>
-          <div class="credentials__card">
-            <img src="/images/credentials/paper-ei-1-detail.jpeg" :alt="$t('credentials.paper')" loading="lazy" />
-            <div class="credentials__card-label">{{ $t('credentials.paper') }}</div>
+          <!-- Duplicate for seamless loop -->
+          <div v-for="cert in allCertificates" :key="cert.img + '-dup'" class="credentials__card">
+            <img :src="cert.img" :alt="cert.label" loading="lazy" />
+            <div class="credentials__card-label">{{ cert.label }}</div>
           </div>
         </div>
       </div>
@@ -51,6 +38,24 @@ const stats = [
   { key: 'copyrights', value: '4', labelKey: 'credentials.copyrights' },
   { key: 'papers', value: '6', labelKey: 'credentials.papers' },
   { key: 'partners', value: '4', labelKey: 'credentials.partners' },
+]
+
+const allCertificates = [
+  { img: '/images/credentials/patent-heart-detector.jpeg', label: '外观设计专利：心音检测仪' },
+  { img: '/images/credentials/patent-recyclable-box.jpeg', label: '实用新型专利：可循环外卖盒' },
+  { img: '/images/credentials/patent-ev-charging.jpeg', label: '实用新型专利：新能源充电系统' },
+  { img: '/images/credentials/patent-road-detection.jpeg', label: '外观设计专利：道路颠簸检测' },
+  { img: '/images/credentials/patent-motherboard-welder.jpeg', label: '外观设计专利：计算机主板焊接器' },
+  { img: '/images/credentials/copyright-heart-detection.jpeg', label: '软著：心音异常检测平台' },
+  { img: '/images/credentials/copyright-heart-detection-cert.jpeg', label: '软著证书：心音异常检测平台' },
+  { img: '/images/credentials/copyright-ml-training.jpeg', label: '软著：机器学习模型训练平台' },
+  { img: '/images/credentials/copyright-ml-training-cert.jpeg', label: '软著证书：机器学习模型训练平台' },
+  { img: '/images/credentials/paper-ei-1.jpeg', label: 'EI会议论文 (1)' },
+  { img: '/images/credentials/paper-ei-1-detail.jpeg', label: 'EI会议论文详情 (1)' },
+  { img: '/images/credentials/paper-ei-2.jpeg', label: 'EI会议论文 (2)' },
+  { img: '/images/credentials/paper-ei-2-detail.jpeg', label: 'EI会议论文详情 (2)' },
+  { img: '/images/credentials/paper-ei-3.jpeg', label: 'EI会议论文 (3)' },
+  { img: '/images/credentials/paper-core-journal.jpeg', label: '中国核心期刊论文' },
 ]
 </script>
 
@@ -90,58 +95,63 @@ const stats = [
   font-weight: 400;
 }
 
-/* Gallery */
-.credentials__gallery {
+/* Marquee */
+.credentials__marquee {
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+.credentials__track {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
+  gap: 20px;
+  animation: credentials-scroll 55s linear infinite;
+  width: max-content;
 }
 
-.credentials__row {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: var(--space-6);
+.credentials__marquee:hover .credentials__track {
+  animation-play-state: paused;
 }
 
-.credentials__row--3 {
-  grid-template-columns: repeat(3, 1fr);
+@keyframes credentials-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .credentials__card {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-md);
+  flex-shrink: 0;
+  width: 240px;
   background: var(--surface-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
   border: 1px solid var(--border-light);
   transition: all var(--transition-base);
 }
 
 .credentials__card:hover {
   box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
 }
 
 .credentials__card img {
   width: 100%;
-  height: 260px;
+  height: 300px;
   object-fit: contain;
   background: #fff;
-  padding: 8px;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-.credentials__card:hover img {
-  transform: scale(1.03);
+  padding: 10px;
 }
 
 .credentials__card-label {
-  padding: 12px 16px;
-  font-size: var(--text-sm);
+  padding: 10px 14px;
+  font-size: var(--text-xs);
   color: var(--text-secondary);
   font-weight: 500;
   text-align: center;
-  background: var(--surface-white);
+  border-top: 1px solid var(--border-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media (max-width: 768px) {
@@ -149,13 +159,12 @@ const stats = [
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .credentials__row,
-  .credentials__row--3 {
-    grid-template-columns: 1fr;
+  .credentials__card {
+    width: 200px;
   }
 
   .credentials__card img {
-    height: 200px;
+    height: 240px;
   }
 }
 </style>
