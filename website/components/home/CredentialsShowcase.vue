@@ -111,7 +111,8 @@ const stats = [
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-md);
-  background: var(--surface-light);
+  background: var(--surface-white);
+  border: 1px solid var(--border-light);
   transition: all var(--transition-base);
 }
 
@@ -122,8 +123,10 @@ const stats = [
 
 .credentials__card img {
   width: 100%;
-  height: 240px;
-  object-fit: cover;
+  height: 260px;
+  object-fit: contain;
+  background: #fff;
+  padding: 8px;
   display: block;
   transition: transform 0.4s ease;
 }

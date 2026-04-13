@@ -72,21 +72,6 @@
       </div>
     </section>
 
-    <!-- Team Awards -->
-    <section class="section">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title scroll-reveal">{{ $t('team.awardsTitle') }}</h2>
-          <p class="section-subtitle scroll-reveal">{{ $t('team.awardsSubtitle') }}</p>
-        </div>
-
-        <div class="awards-grid stagger-children">
-          <div v-for="(award, i) in awards" :key="i" class="award-card scroll-reveal" @click="openLightbox(award)">
-            <img :src="award.img" :alt="award.label" loading="lazy" />
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- Culture -->
     <section class="section" style="background: var(--surface-light);">
@@ -183,10 +168,7 @@ const ipCertificates = [
   { img: '/images/credentials/paper-ei-1-detail.jpeg', label: 'EI会议论文' },
 ]
 
-const awards = Array.from({ length: 10 }, (_, i) => ({
-  img: `/images/credentials/award-${i + 1}.jpeg`,
-  label: `获奖证书 ${i + 1}`,
-}))
+
 </script>
 
 <style scoped>
@@ -354,6 +336,7 @@ const awards = Array.from({ length: 10 }, (_, i) => ({
   overflow: hidden;
   cursor: pointer;
   transition: all var(--transition-base);
+  border: 1px solid var(--border-light);
 }
 
 .ip-card:hover {
@@ -363,8 +346,10 @@ const awards = Array.from({ length: 10 }, (_, i) => ({
 
 .ip-card img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: 320px;
+  object-fit: contain;
+  background: #fff;
+  padding: 8px;
   transition: transform 0.4s ease;
 }
 
@@ -378,38 +363,9 @@ const awards = Array.from({ length: 10 }, (_, i) => ({
   color: var(--text-secondary);
   font-weight: 500;
   text-align: center;
+  border-top: 1px solid var(--border-light);
 }
 
-/* Awards Grid */
-.awards-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: var(--space-4);
-}
-
-.award-card {
-  background: var(--surface-light);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  cursor: pointer;
-  transition: all var(--transition-base);
-}
-
-.award-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
-}
-
-.award-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.award-card:hover img {
-  transform: scale(1.05);
-}
 
 /* Culture */
 .culture-grid {
@@ -495,8 +451,8 @@ const awards = Array.from({ length: 10 }, (_, i) => ({
 @media (max-width: 768px) {
   .team-hero__title { font-size: var(--text-3xl); }
   .ip-stats { grid-template-columns: 1fr; }
-  .ip-gallery { grid-template-columns: repeat(2, 1fr); }
-  .awards-grid { grid-template-columns: repeat(2, 1fr); }
+  .ip-gallery { grid-template-columns: 1fr; }
+  .ip-card img { height: 260px; }
   .culture-grid { grid-template-columns: 1fr; }
 }
 </style>
