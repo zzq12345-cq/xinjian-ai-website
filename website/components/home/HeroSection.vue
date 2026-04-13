@@ -105,15 +105,15 @@ const localePath = useLocalePath()
   bottom: 20%;
   left: 0;
   width: 100%;
-  height: 100px;
-  opacity: 0.04;
+  height: 120px;
+  opacity: 0.15;
   pointer-events: none;
 }
 
 .hero__waveform-path {
   fill: none;
   stroke: var(--brand-primary);
-  stroke-width: 2;
+  stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-dasharray: 2000;
