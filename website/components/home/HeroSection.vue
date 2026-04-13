@@ -26,7 +26,7 @@
       </div>
 
       <div class="hero__image animate-fade-in" style="animation-delay: 0.2s;">
-        <img src="/images/credentials/product-render-front.jpeg" alt="心音智鉴设备" />
+        <NuxtImg src="/images/credentials/product-render-front.jpeg" alt="心音智鉴设备" format="webp" />
       </div>
     </div>
 
@@ -34,7 +34,7 @@
     <div class="hero__scene">
       <div class="container">
         <div class="hero__scene-inner scroll-reveal">
-          <img src="/images/family-health.png" alt="家庭健康守护" class="hero__scene-img" />
+          <NuxtImg src="/images/family-health.png" alt="家庭健康守护" class="hero__scene-img" format="webp" />
           <div class="hero__scene-overlay">
             <p class="hero__scene-text">{{ $t('hero.ctaSecondary') }} — {{ $t('pain.subtitle') }}</p>
           </div>

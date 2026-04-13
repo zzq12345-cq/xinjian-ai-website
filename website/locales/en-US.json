@@ -23,6 +23,14 @@
     "team": "Expert Team",
     "teamUnit": "members"
   },
+  "credentials": {
+    "title": "Core Credentials",
+    "subtitle": "Solid technical achievements and intellectual property are the foundation of our innovation",
+    "patents": "National Patents",
+    "copyrights": "Software Copyrights",
+    "papers": "Academic Papers",
+    "partners": "Partner Companies"
+  },
   "pain": {
     "badge": "We Understand Your Concerns",
     "title": "Family Heart Health Shouldn't Be a Guessing Game",
@@ -46,7 +54,8 @@
     "f2Title": "WeChat Mini Program",
     "f2Desc": "No app download needed. Scan to use instantly. Detection reports, health records, and AI health assistant — all in one mini program.",
     "f3Title": "Long-term Health Records",
-    "f3Desc": "Each detection is automatically archived with health trend charts. Family members can view remotely, keeping care connected across distances."
+    "f3Desc": "Each detection is automatically archived with health trend charts. Family members can view remotely, keeping care connected across distances.",
+    "learnMore": "Learn More"
   },
   "howItWorks": {
     "badge": "How It Works",
@@ -103,11 +112,16 @@
     "spec5": "Data Security",
     "spec5Value": "Local inference, end-to-end encryption",
     "spec6": "Connection Method",
-    "spec6Value": "WiFi LAN + WeChat QR Scan"
+    "spec6Value": "WiFi LAN + WeChat QR Scan",
+    "galleryTitle": "Product Gallery",
+    "gallerySubtitle": "Explore HeartSound's design and experimental data",
+    "dataCaption1": "Heart sound signal collection and analysis",
+    "dataCaption2": "AI model training accuracy curve"
   },
   "team": {
     "heroTitle": "We Are XinJian AI",
     "heroSubtitle": "A team of young innovators using technology to warm family health",
+    "deptCore": "Core Team",
     "deptTech": "Technology",
     "deptMarket": "Marketing",
     "deptOps": "Operations",
@@ -120,7 +134,15 @@
     "valuesText": "Tech for Good · User First · Open Innovation · Walk Together with Warmth",
     "joinTitle": "Join Us",
     "joinDesc": "If you also believe technology can warm lives, we welcome you to join us",
-    "joinButton": "Send Resume"
+    "joinButton": "Send Resume",
+    "ipTitle": "Intellectual Property & Honors",
+    "ipSubtitle": "Strong credentials backing our R&D achievements",
+    "ipPatents": "National Patents",
+    "ipPatentsDetail": "Design and utility model patents",
+    "ipCopyrights": "Software Copyrights",
+    "ipCopyrightsDetail": "Core software systems and platforms",
+    "ipPapers": "Academic Papers",
+    "ipPapersDetail": "EI-indexed and core journal publications"
   },
   "news": {
     "heroTitle": "Latest News",
@@ -145,6 +167,9 @@
     "formMessage": "Message",
     "formSubmit": "Submit",
     "formSuccess": "Message sent! We'll get back to you soon.",
+    "licenseTitle": "Business License",
+    "partnersTitle": "Partners",
+    "partnersSubtitle": "Partnering with industry leaders to advance family health technology",
     "subjects": {
       "cooperation": "Business Cooperation",
       "investment": "Investment Inquiry",

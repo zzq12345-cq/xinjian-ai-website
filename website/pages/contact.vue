@@ -45,7 +45,7 @@
             <div class="contact-license">
               <h3 class="contact-license__title">{{ $t('contact.licenseTitle') }}</h3>
               <div class="contact-license__card">
-                <img src="/images/credentials/business-license.jpeg" :alt="$t('contact.licenseTitle')" />
+                <NuxtImg src="/images/credentials/business-license.jpeg" :alt="$t('contact.licenseTitle')" format="webp" />
               </div>
             </div>
           </div>
@@ -107,7 +107,7 @@
 
         <div class="partners-grid stagger-children">
           <div v-for="partner in partners" :key="partner.name" class="partner-card scroll-reveal">
-            <img v-if="partner.img" :src="partner.img" :alt="partner.name" class="partner-card__img" loading="lazy" />
+            <NuxtImg v-if="partner.img" :src="partner.img" :alt="partner.name" class="partner-card__img" loading="lazy" format="webp" />
             <div class="partner-card__body">
               <h3 class="partner-card__name">{{ partner.name }}</h3>
               <p class="partner-card__desc">{{ partner.desc }}</p>
@@ -118,7 +118,7 @@
         <!-- Contracts Showcase -->
         <div class="contracts-bar scroll-reveal">
           <div v-for="contract in contracts" :key="contract.img" class="contract-thumb" @click="lightboxItem = contract">
-            <img :src="contract.img" :alt="contract.label" loading="lazy" />
+            <NuxtImg :src="contract.img" :alt="contract.label" loading="lazy" format="webp" />
             <span>{{ contract.label }}</span>
           </div>
         </div>

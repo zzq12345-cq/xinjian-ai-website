@@ -13,7 +13,7 @@
           </p>
         </div>
         <div class="product-hero__image animate-fade-in" style="animation-delay: 0.15s;">
-          <img src="/images/credentials/product-render-front.jpeg" alt="HeartSound Device" />
+          <NuxtImg src="/images/credentials/product-render-front.jpeg" alt="HeartSound Device" format="webp" />
         </div>
       </div>
     </section>
@@ -63,24 +63,24 @@
         </div>
         <div class="product-gallery stagger-children">
           <div class="product-gallery__main scroll-reveal">
-            <img src="/images/credentials/product-render-front.jpeg" alt="产品正面渲染图" />
+            <NuxtImg src="/images/credentials/product-render-front.jpeg" alt="产品正面渲染图" format="webp" />
           </div>
           <div class="product-gallery__side">
             <div class="product-gallery__item scroll-reveal">
-              <img src="/images/credentials/product-render-angle.jpeg" alt="产品电路板细节" />
+              <NuxtImg src="/images/credentials/product-render-angle.jpeg" alt="产品电路板细节" format="webp" />
             </div>
             <div class="product-gallery__item scroll-reveal" style="animation-delay: 0.1s;">
-              <img src="/images/credentials/product-render-banner.jpeg" alt="产品横幅渲染" />
+              <NuxtImg src="/images/credentials/product-render-banner.jpeg" alt="产品横幅渲染" format="webp" />
             </div>
           </div>
         </div>
         <div class="product-gallery__data scroll-reveal">
           <div class="product-gallery__data-item">
-            <img src="/images/credentials/experiment-data-1.jpeg" alt="实验数据1" />
+            <NuxtImg src="/images/credentials/experiment-data-1.jpeg" alt="实验数据1" format="webp" />
             <p>{{ $t('product.dataCaption1') }}</p>
           </div>
           <div class="product-gallery__data-item">
-            <img src="/images/credentials/experiment-data-2.jpeg" alt="实验数据2" />
+            <NuxtImg src="/images/credentials/experiment-data-2.jpeg" alt="实验数据2" format="webp" />
             <p>{{ $t('product.dataCaption2') }}</p>
           </div>
         </div>

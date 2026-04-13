@@ -3,7 +3,7 @@
     <Transition name="lightbox">
       <div v-if="item" class="lightbox" @click.self="$emit('close')">
         <button class="lightbox__close" @click="$emit('close')">&times;</button>
-        <img :src="item.img" :alt="item.label" class="lightbox__img" />
+        <NuxtImg :src="item.img" :alt="item.label" class="lightbox__img" />
         <p v-if="item.label" class="lightbox__label">{{ item.label }}</p>
       </div>
     </Transition>

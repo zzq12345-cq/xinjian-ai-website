@@ -9,13 +9,13 @@
       <!-- Feature cards with image -->
       <div class="features__showcase scroll-reveal">
         <div class="features__showcase-img">
-          <img src="/images/miniprogram-mockup.png" alt="小程序界面" />
+          <NuxtImg src="/images/miniprogram-mockup.png" alt="小程序界面" format="webp" />
         </div>
         <div class="features__showcase-content">
           <h3 class="features__showcase-title">{{ $t('features.f2Title') }}</h3>
           <p class="features__showcase-desc">{{ $t('features.f2Desc') }}</p>
           <NuxtLink :to="localePath('/product')" class="link-arrow">
-            了解更多
+            {{ $t('features.learnMore') }}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>

@@ -9,7 +9,7 @@
         </p>
       </div>
       <div class="team-hero__photo">
-        <img src="/images/team-workspace.png" alt="团队协作" />
+        <NuxtImg src="/images/team-workspace.png" alt="团队协作" format="webp" />
       </div>
     </section>
 
@@ -66,12 +66,12 @@
         <div class="ip-marquee scroll-reveal">
           <div class="ip-marquee__track">
             <div v-for="cert in allCertificates" :key="cert.img" class="ip-card" @click="openLightbox(cert)">
-              <img :src="cert.img" :alt="cert.label" loading="lazy" />
+              <NuxtImg :src="cert.img" :alt="cert.label" loading="lazy" format="webp" />
               <p class="ip-card__label">{{ cert.label }}</p>
             </div>
             <!-- Duplicate for seamless loop -->
             <div v-for="cert in allCertificates" :key="cert.img + '-dup'" class="ip-card" @click="openLightbox(cert)">
-              <img :src="cert.img" :alt="cert.label" loading="lazy" />
+              <NuxtImg :src="cert.img" :alt="cert.label" loading="lazy" format="webp" />
               <p class="ip-card__label">{{ cert.label }}</p>
             </div>
           </div>
@@ -138,8 +138,7 @@ const departments = [
   {
     key: 'tech', titleKey: 'team.deptTech',
     members: [
-      { name: '谢堃昊', role: '核心技术成员', bio: '参与模型训练与系统测试', avatarBg: '#333' },
-      { name: '谢堃昊', role: '技术开发', bio: '嵌入式开发与硬件调试', avatarBg: '#444' },
+      { name: '谢堃昊', role: '核心技术成员', bio: '参与模型训练、嵌入式开发与硬件调试', avatarBg: '#333' },
     ],
   },
   {
@@ -324,6 +323,7 @@ const departments = [
   gap: 20px;
   animation: marquee-scroll 60s linear infinite;
   width: max-content;
+  will-change: transform;
 }
 
 .ip-marquee:hover .ip-marquee__track {

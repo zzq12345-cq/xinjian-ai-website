@@ -1,29 +1,21 @@
 <template>
-  <section class="credentials section">
+  <section class="credentials section credentials--dark">
     <div class="container">
       <div class="section-header">
         <h2 class="section-title scroll-reveal">{{ $t('credentials.title') }}</h2>
         <p class="section-subtitle scroll-reveal">{{ $t('credentials.subtitle') }}</p>
       </div>
 
-      <!-- Stats Bar -->
-      <div class="credentials__stats stagger-children">
-        <div v-for="stat in stats" :key="stat.key" class="credentials__stat scroll-reveal">
-          <span class="credentials__stat-value">{{ stat.value }}</span>
-          <span class="credentials__stat-label">{{ $t(stat.labelKey) }}</span>
-        </div>
-      </div>
-
       <!-- Auto-scrolling Certificate Marquee -->
       <div class="credentials__marquee scroll-reveal">
         <div class="credentials__track">
           <div v-for="cert in allCertificates" :key="cert.img" class="credentials__card">
-            <img :src="cert.img" :alt="cert.label" loading="lazy" />
+            <NuxtImg :src="cert.img" :alt="cert.label" loading="lazy" format="webp" />
             <div class="credentials__card-label">{{ cert.label }}</div>
           </div>
           <!-- Duplicate for seamless loop -->
           <div v-for="cert in allCertificates" :key="cert.img + '-dup'" class="credentials__card">
-            <img :src="cert.img" :alt="cert.label" loading="lazy" />
+            <NuxtImg :src="cert.img" :alt="cert.label" loading="lazy" format="webp" />
             <div class="credentials__card-label">{{ cert.label }}</div>
           </div>
         </div>
@@ -34,49 +26,20 @@
 
 <script setup lang="ts">
 import { allCertificates } from '~/data/certificates'
-
-const stats = [
-  { key: 'patents', value: '5', labelKey: 'credentials.patents' },
-  { key: 'copyrights', value: '4', labelKey: 'credentials.copyrights' },
-  { key: 'papers', value: '6', labelKey: 'credentials.papers' },
-  { key: 'partners', value: '4', labelKey: 'credentials.partners' },
-]
 </script>
 
 <style scoped>
-/* Stats */
-.credentials__stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-6);
-  margin-bottom: 60px;
+/* Dark theme for credentials section */
+.credentials--dark {
+  background: var(--surface-dark);
 }
 
-.credentials__stat {
-  text-align: center;
-  padding: 32px 16px;
-  background: var(--surface-light);
-  transition: all var(--transition-base);
+.credentials--dark .section-title {
+  color: var(--text-inverse);
 }
 
-.credentials__stat:hover {
-  background: var(--surface-white);
-  box-shadow: var(--shadow-lg);
-}
-
-.credentials__stat-value {
-  display: block;
-  font-size: 2.5rem;
-  font-weight: 500;
-  color: var(--text-primary);
-  font-family: var(--font-display);
-  margin-bottom: var(--space-2);
-}
-
-.credentials__stat-label {
-  font-size: var(--text-sm);
-  color: var(--text-muted);
-  font-weight: 400;
+.credentials--dark .section-subtitle {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 /* Marquee */
@@ -92,6 +55,7 @@ const stats = [
   gap: 20px;
   animation: credentials-scroll 55s linear infinite;
   width: max-content;
+  will-change: transform;
 }
 
 .credentials__marquee:hover .credentials__track {
@@ -118,7 +82,7 @@ const stats = [
   transform: translateY(-4px);
 }
 
-.credentials__card img {
+.credentials__card :deep(img) {
   width: 100%;
   height: 300px;
   object-fit: contain;
@@ -139,15 +103,11 @@ const stats = [
 }
 
 @media (max-width: 768px) {
-  .credentials__stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .credentials__card {
     width: 200px;
   }
 
-  .credentials__card img {
+  .credentials__card :deep(img) {
     height: 240px;
   }
 }

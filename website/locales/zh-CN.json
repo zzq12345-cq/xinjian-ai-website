@@ -23,6 +23,14 @@
     "team": "专业团队",
     "teamUnit": "人"
   },
+  "credentials": {
+    "title": "核心资质",
+    "subtitle": "扎实的技术积累与知识产权是我们创新的基石",
+    "patents": "国家专利",
+    "copyrights": "软件著作权",
+    "papers": "学术论文",
+    "partners": "合作企业"
+  },
   "pain": {
     "badge": "我们理解您的困扰",
     "title": "家人的心脏健康，不该靠猜",
@@ -46,7 +54,8 @@
     "f2Title": "微信小程序",
     "f2Desc": "无需下载App，微信扫码即用。检测报告、健康档案、AI健康助手，一个小程序全搞定。",
     "f3Title": "长期健康档案",
-    "f3Desc": "每次检测自动归档，生成健康趋势图。家人可远程查看，让关爱跨越距离。"
+    "f3Desc": "每次检测自动归档，生成健康趋势图。家人可远程查看，让关爱跨越距离。",
+    "learnMore": "了解更多"
   },
   "howItWorks": {
     "badge": "使用流程",
@@ -103,11 +112,16 @@
     "spec5": "数据安全",
     "spec5Value": "本地推理，端到端加密",
     "spec6": "连接方式",
-    "spec6Value": "WiFi局域网 + 微信扫码"
+    "spec6Value": "WiFi局域网 + 微信扫码",
+    "galleryTitle": "产品展示",
+    "gallerySubtitle": "全方位了解心音智鉴的设计与实验数据",
+    "dataCaption1": "心音信号采集与分析数据",
+    "dataCaption2": "AI模型训练准确率曲线"
   },
   "team": {
     "heroTitle": "我们是心鉴智能",
     "heroSubtitle": "一群用技术温暖家庭健康的年轻人",
+    "deptCore": "核心团队",
     "deptTech": "技术团队",
     "deptMarket": "市场团队",
     "deptOps": "运营团队",
@@ -120,7 +134,15 @@
     "valuesText": "技术为善 · 用户至上 · 开放创新 · 温暖同行",
     "joinTitle": "加入我们",
     "joinDesc": "如果你也相信技术可以温暖生活，欢迎与我们同行",
-    "joinButton": "发送简历"
+    "joinButton": "发送简历",
+    "ipTitle": "知识产权与荣誉",
+    "ipSubtitle": "技术研发成果的有力背书",
+    "ipPatents": "国家专利",
+    "ipPatentsDetail": "涵盖外观设计与实用新型",
+    "ipCopyrights": "软件著作权",
+    "ipCopyrightsDetail": "核心软件系统及平台",
+    "ipPapers": "学术论文",
+    "ipPapersDetail": "EI收录与核心期刊"
   },
   "news": {
     "heroTitle": "最新动态",
@@ -145,6 +167,9 @@
     "formMessage": "留言内容",
     "formSubmit": "提交留言",
     "formSuccess": "留言已提交，我们会尽快回复！",
+    "licenseTitle": "企业资质",
+    "partnersTitle": "合作伙伴",
+    "partnersSubtitle": "携手行业领先企业，共同推动家庭健康科技发展",
     "subjects": {
       "cooperation": "商务合作",
       "investment": "投资咨询",

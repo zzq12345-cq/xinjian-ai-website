@@ -1,7 +1,7 @@
 <template>
   <section class="cta-section">
     <div class="cta-section__bg">
-      <img src="/images/ai-heart-tech.png" alt="" class="cta-section__bg-img" />
+      <NuxtImg src="/images/ai-heart-tech.png" alt="" class="cta-section__bg-img" format="webp" />
       <div class="cta-section__bg-overlay"></div>
     </div>
     <div class="container cta-section__content">

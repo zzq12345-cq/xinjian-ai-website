@@ -15,7 +15,7 @@
       <div class="container">
         <div class="news-featured scroll-reveal">
           <div class="news-featured__img">
-            <img src="/images/news-launch.png" alt="官网上线" />
+            <NuxtImg src="/images/news-launch.png" alt="官网上线" format="webp" />
           </div>
           <div class="news-featured__body">
             <span class="news-featured__badge">{{ $t(`news.categories.${newsItems[0].category}`) }}</span>
@@ -215,7 +215,9 @@ const newsItems = [
 
 @media (max-width: 768px) {
   .news-hero__title { font-size: var(--text-3xl); }
-  .news-featured { padding: var(--space-6); padding-left: var(--space-8); }
+  .news-featured { grid-template-columns: 1fr; }
+  .news-featured__img img { height: 240px; }
+  .news-featured__body { padding: var(--space-6) var(--space-8); }
   .news-featured__title { font-size: var(--text-2xl); }
   .news-item { flex-direction: column; gap: var(--space-3); }
   .news-item__left { flex-direction: row; gap: var(--space-3); min-width: auto; }

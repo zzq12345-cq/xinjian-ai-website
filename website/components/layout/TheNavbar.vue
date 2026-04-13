@@ -90,10 +90,8 @@ function closeMobile() {
   isMobileOpen.value = false
 }
 
-onMounted(() => {
-  window.addEventListener('scroll', () => {
-    isScrolled.value = window.scrollY > 10
-  })
+useEventListener(window, 'scroll', () => {
+  isScrolled.value = window.scrollY > 10
 })
 </script>
 
