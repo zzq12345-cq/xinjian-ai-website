@@ -1,7 +1,10 @@
 <template>
   <section class="hero">
     <div class="hero__bg">
-      <div class="hero__bg-gradient"></div>
+      <!-- 纯色分区背景 -->
+      <div class="hero__bg-solid"></div>
+      <!-- 品牌色竖条装饰 -->
+      <div class="hero__accent-bar"></div>
     </div>
 
     <div class="container hero__content">
@@ -26,7 +29,12 @@
       </div>
 
       <div class="hero__image animate-fade-in" style="animation-delay: 0.2s;">
-        <NuxtImg src="/images/credentials/product-render-front.jpeg" alt="心音智鉴设备" format="webp" />
+        <div class="hero__image-wrapper">
+          <!-- 心跳脉搏波纹 -->
+          <div class="hero__pulse-ring hero__pulse-ring--1"></div>
+          <div class="hero__pulse-ring hero__pulse-ring--2"></div>
+          <NuxtImg src="/images/credentials/product-render-front.jpeg" alt="心音智鉴设备" format="webp" />
+        </div>
       </div>
     </div>
 
@@ -60,10 +68,31 @@ const localePath = useLocalePath()
   height: 100%;
 }
 
-.hero__bg-gradient {
+/* 左白右浅灰 纯色分区 — 不是渐变 */
+.hero__bg-solid {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #F8F8F8 0%, #FFFFFF 50%, #F5F5F5 100%);
+  background: #F5F5F5;
+}
+
+.hero__bg-solid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: #FFFFFF;
+}
+
+/* 品牌红竖条 — 左侧边缘装饰线 */
+.hero__accent-bar {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  width: 4px;
+  height: 120px;
+  background: var(--brand-primary);
 }
 
 .hero__content {
@@ -104,17 +133,55 @@ const localePath = useLocalePath()
   gap: var(--space-4);
 }
 
+/* 产品图区域 */
 .hero__image {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.hero__image img {
+.hero__image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero__image :deep(img) {
   max-width: 100%;
   max-height: 460px;
   object-fit: contain;
   border-radius: var(--radius-lg);
+  position: relative;
+  z-index: 1;
+}
+
+/* 心跳脉搏波纹 — 纯色边框，不是渐变 */
+.hero__pulse-ring {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  border: 1px solid rgba(199, 0, 11, 0.06);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse-expand 4s ease-out infinite;
+}
+
+.hero__pulse-ring--2 {
+  animation-delay: 2s;
+}
+
+@keyframes pulse-expand {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0;
+  }
 }
 
 /* Family Scene Banner */
@@ -122,6 +189,7 @@ const localePath = useLocalePath()
   position: relative;
   z-index: 1;
   padding: 0 0 80px;
+  background: #FFFFFF;
 }
 
 .hero__scene-inner {
@@ -154,6 +222,14 @@ const localePath = useLocalePath()
 }
 
 @media (max-width: 1024px) {
+  .hero__bg-solid::before {
+    width: 100%;
+  }
+
+  .hero__accent-bar {
+    display: none;
+  }
+
   .hero__content {
     grid-template-columns: 1fr;
     gap: var(--space-10);
@@ -178,12 +254,17 @@ const localePath = useLocalePath()
     order: -1;
   }
 
-  .hero__image img {
+  .hero__image :deep(img) {
     max-height: 320px;
   }
 
   .hero__scene-img {
     height: 240px;
+  }
+
+  .hero__pulse-ring {
+    width: 280px;
+    height: 280px;
   }
 }
 
@@ -195,6 +276,10 @@ const localePath = useLocalePath()
   .hero__actions {
     flex-direction: column;
     align-items: center;
+  }
+
+  .hero__pulse-ring {
+    display: none;
   }
 }
 </style>
