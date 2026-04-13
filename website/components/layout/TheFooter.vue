@@ -13,7 +13,7 @@
           <div class="footer__col">
             <h4 class="footer__col-title">{{ $t('footer.products') }}</h4>
             <NuxtLink :to="localePath('/product')" class="footer__link">{{ $t('footer.heartSound') }}</NuxtLink>
-            <a href="#" class="footer__link">{{ $t('footer.miniProgram') }}</a>
+            <span class="footer__link footer__link--disabled">{{ $t('footer.miniProgram') }}</span>
           </div>
 
           <div class="footer__col">
@@ -35,8 +35,8 @@
       <div class="container footer__bottom-inner">
         <p class="footer__copyright">{{ $t('footer.copyright') }}</p>
         <div class="footer__legal">
-          <a href="#" class="footer__legal-link">{{ $t('footer.privacy') }}</a>
-          <a href="#" class="footer__legal-link">{{ $t('footer.terms') }}</a>
+          <span class="footer__legal-link footer__legal-link--disabled">{{ $t('footer.privacy') }}</span>
+          <span class="footer__legal-link footer__legal-link--disabled">{{ $t('footer.terms') }}</span>
         </div>
       </div>
     </div>
@@ -132,6 +132,23 @@ const localePath = useLocalePath()
 
 .footer__legal-link:hover {
   color: rgba(255, 255, 255, 0.6);
+}
+
+.footer__link--disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+
+.footer__link--disabled:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer__legal-link--disabled {
+  cursor: default;
+}
+
+.footer__legal-link--disabled:hover {
+  color: rgba(255, 255, 255, 0.3);
 }
 
 @media (max-width: 768px) {

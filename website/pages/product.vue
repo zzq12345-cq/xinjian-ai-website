@@ -28,7 +28,7 @@
         <div class="product-features stagger-children">
           <div v-for="(f, i) in features" :key="i" class="product-feature scroll-reveal">
             <div class="product-feature__icon" :style="{ color: f.color }">
-              <span v-html="f.icon"></span>
+              <component :is="f.icon" />
             </div>
             <h3 class="product-feature__title">{{ $t(f.titleKey) }}</h3>
             <p class="product-feature__desc">{{ $t(f.descKey) }}</p>
@@ -107,36 +107,33 @@
 </template>
 
 <script setup lang="ts">
+import IconHeartbeat from '~/components/icons/IconHeartbeat.vue'
+import IconEye from '~/components/icons/IconEye.vue'
+import IconLayers from '~/components/icons/IconLayers.vue'
+import IconChat from '~/components/icons/IconChat.vue'
+import IconMic from '~/components/icons/IconMic.vue'
+import IconUsers from '~/components/icons/IconUsers.vue'
+import type { Component } from 'vue'
+
 useHead({
   title: '产品介绍 - 心音智鉴 | 心鉴智能',
   meta: [{ name: 'description', content: '心音智鉴是一款基于AI的家庭级心音检测系统，集心音采集、AI分析、健康档案于一体。' }],
 })
 
-const features = [
-  {
-    titleKey: 'product.f1Title', descKey: 'product.f1Desc', color: 'var(--brand-primary)',
-    icon: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h2l1-3 2 6 1-4h2"/></svg>',
-  },
-  {
-    titleKey: 'product.f2Title', descKey: 'product.f2Desc', color: 'var(--text-primary)',
-    icon: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>',
-  },
-  {
-    titleKey: 'product.f3Title', descKey: 'product.f3Desc', color: 'var(--text-primary)',
-    icon: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>',
-  },
-  {
-    titleKey: 'product.f4Title', descKey: 'product.f4Desc', color: 'var(--text-primary)',
-    icon: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>',
-  },
-  {
-    titleKey: 'product.f5Title', descKey: 'product.f5Desc', color: 'var(--text-primary)',
-    icon: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8"/></svg>',
-  },
-  {
-    titleKey: 'product.f6Title', descKey: 'product.f6Desc', color: 'var(--text-primary)',
-    icon: '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
-  },
+interface FeatureItem {
+  titleKey: string
+  descKey: string
+  color: string
+  icon: Component
+}
+
+const features: FeatureItem[] = [
+  { titleKey: 'product.f1Title', descKey: 'product.f1Desc', color: 'var(--brand-primary)', icon: IconHeartbeat },
+  { titleKey: 'product.f2Title', descKey: 'product.f2Desc', color: 'var(--text-primary)', icon: IconEye },
+  { titleKey: 'product.f3Title', descKey: 'product.f3Desc', color: 'var(--text-primary)', icon: IconLayers },
+  { titleKey: 'product.f4Title', descKey: 'product.f4Desc', color: 'var(--text-primary)', icon: IconChat },
+  { titleKey: 'product.f5Title', descKey: 'product.f5Desc', color: 'var(--text-primary)', icon: IconMic },
+  { titleKey: 'product.f6Title', descKey: 'product.f6Desc', color: 'var(--text-primary)', icon: IconUsers },
 ]
 
 const archNodes = [

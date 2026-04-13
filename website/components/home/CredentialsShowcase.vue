@@ -33,29 +33,13 @@
 </template>
 
 <script setup lang="ts">
+import { allCertificates } from '~/data/certificates'
+
 const stats = [
   { key: 'patents', value: '5', labelKey: 'credentials.patents' },
   { key: 'copyrights', value: '4', labelKey: 'credentials.copyrights' },
   { key: 'papers', value: '6', labelKey: 'credentials.papers' },
   { key: 'partners', value: '4', labelKey: 'credentials.partners' },
-]
-
-const allCertificates = [
-  { img: '/images/credentials/patent-heart-detector.jpeg', label: '外观设计专利：心音检测仪' },
-  { img: '/images/credentials/patent-recyclable-box.jpeg', label: '实用新型专利：可循环外卖盒' },
-  { img: '/images/credentials/patent-ev-charging.jpeg', label: '实用新型专利：新能源充电系统' },
-  { img: '/images/credentials/patent-road-detection.jpeg', label: '外观设计专利：道路颠簸检测' },
-  { img: '/images/credentials/patent-motherboard-welder.jpeg', label: '外观设计专利：计算机主板焊接器' },
-  { img: '/images/credentials/copyright-heart-detection.jpeg', label: '软著：心音异常检测平台' },
-  { img: '/images/credentials/copyright-heart-detection-cert.jpeg', label: '软著证书：心音异常检测平台' },
-  { img: '/images/credentials/copyright-ml-training.jpeg', label: '软著：机器学习模型训练平台' },
-  { img: '/images/credentials/copyright-ml-training-cert.jpeg', label: '软著证书：机器学习模型训练平台' },
-  { img: '/images/credentials/paper-ei-1.jpeg', label: 'EI会议论文 (1)' },
-  { img: '/images/credentials/paper-ei-1-detail.jpeg', label: 'EI会议论文详情 (1)' },
-  { img: '/images/credentials/paper-ei-2.jpeg', label: 'EI会议论文 (2)' },
-  { img: '/images/credentials/paper-ei-2-detail.jpeg', label: 'EI会议论文详情 (2)' },
-  { img: '/images/credentials/paper-ei-3.jpeg', label: 'EI会议论文 (3)' },
-  { img: '/images/credentials/paper-core-journal.jpeg', label: '中国核心期刊论文' },
 ]
 </script>
 

@@ -126,28 +126,17 @@
     </section>
 
     <!-- Lightbox -->
-    <Teleport to="body">
-      <Transition name="lightbox">
-        <div v-if="lightboxItem" class="lightbox" @click.self="lightboxItem = null">
-          <button class="lightbox__close" @click="lightboxItem = null">&times;</button>
-          <img :src="lightboxItem.img" :alt="lightboxItem.label" class="lightbox__img" />
-          <p v-if="lightboxItem.label" class="lightbox__label">{{ lightboxItem.label }}</p>
-        </div>
-      </Transition>
-    </Teleport>
+    <BaseLightbox :item="lightboxItem" @close="lightboxItem = null" />
   </div>
 </template>
 
 <script setup lang="ts">
+import type { LightboxItem } from '~/components/BaseLightbox.vue'
+
 useHead({
   title: '联系我们 - 心鉴智能科技工作室',
   meta: [{ name: 'description', content: '联系心鉴智能科技工作室，了解商务合作与投资机会。' }],
 })
-
-interface LightboxItem {
-  img: string
-  label: string
-}
 
 const lightboxItem = ref<LightboxItem | null>(null)
 
@@ -439,61 +428,7 @@ const contracts = [
   font-weight: 500;
 }
 
-/* Lightbox */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(8px);
-  padding: var(--space-8);
-}
 
-.lightbox__close {
-  position: absolute;
-  top: 20px;
-  right: 24px;
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.2s;
-}
-
-.lightbox__close:hover {
-  opacity: 0.7;
-}
-
-.lightbox__img {
-  max-width: 90vw;
-  max-height: 80vh;
-  object-fit: contain;
-  border-radius: var(--radius-md);
-}
-
-.lightbox__label {
-  margin-top: var(--space-4);
-  color: rgba(255, 255, 255, 0.8);
-  font-size: var(--text-base);
-}
-
-.lightbox-enter-active,
-.lightbox-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.lightbox-enter-from,
-.lightbox-leave-to {
-  opacity: 0;
-}
 
 @media (max-width: 768px) {
   .contact-hero__title { font-size: var(--text-3xl); }

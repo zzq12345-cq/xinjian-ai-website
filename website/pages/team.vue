@@ -106,28 +106,18 @@
     <HomeCtaSection />
 
     <!-- Lightbox -->
-    <Teleport to="body">
-      <Transition name="lightbox">
-        <div v-if="lightboxItem" class="lightbox" @click.self="lightboxItem = null">
-          <button class="lightbox__close" @click="lightboxItem = null">&times;</button>
-          <img :src="lightboxItem.img" :alt="lightboxItem.label" class="lightbox__img" />
-          <p v-if="lightboxItem.label" class="lightbox__label">{{ lightboxItem.label }}</p>
-        </div>
-      </Transition>
-    </Teleport>
+    <BaseLightbox :item="lightboxItem" @close="lightboxItem = null" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { allCertificates } from '~/data/certificates'
+import type { LightboxItem } from '~/components/BaseLightbox.vue'
+
 useHead({
   title: '团队介绍 - 心鉴智能科技工作室',
   meta: [{ name: 'description', content: '心鉴智能科技工作室团队，覆盖技术、市场、运营三大部门。累计5项专利、4个软著、6篇学术论文。' }],
 })
-
-interface LightboxItem {
-  img: string
-  label: string
-}
 
 const lightboxItem = ref<LightboxItem | null>(null)
 
@@ -164,27 +154,6 @@ const departments = [
       { name: '运营成员', role: '内容运营', bio: '用户增长与社交媒体运营', avatarBg: '#333' },
     ],
   },
-]
-
-const allCertificates = [
-  // 专利 (5)
-  { img: '/images/credentials/patent-heart-detector.jpeg', label: '外观设计专利：心音检测仪' },
-  { img: '/images/credentials/patent-recyclable-box.jpeg', label: '实用新型专利：可循环外卖盒' },
-  { img: '/images/credentials/patent-ev-charging.jpeg', label: '实用新型专利：新能源充电系统' },
-  { img: '/images/credentials/patent-road-detection.jpeg', label: '外观设计专利：道路颠簸检测' },
-  { img: '/images/credentials/patent-motherboard-welder.jpeg', label: '外观设计专利：计算机主板焊接器' },
-  // 软著 (4)
-  { img: '/images/credentials/copyright-heart-detection.jpeg', label: '软著：心音异常检测平台' },
-  { img: '/images/credentials/copyright-heart-detection-cert.jpeg', label: '软著证书：心音异常检测平台' },
-  { img: '/images/credentials/copyright-ml-training.jpeg', label: '软著：机器学习模型训练平台' },
-  { img: '/images/credentials/copyright-ml-training-cert.jpeg', label: '软著证书：机器学习模型训练平台' },
-  // 论文 (6)
-  { img: '/images/credentials/paper-ei-1.jpeg', label: 'EI会议论文 (1)' },
-  { img: '/images/credentials/paper-ei-1-detail.jpeg', label: 'EI会议论文详情 (1)' },
-  { img: '/images/credentials/paper-ei-2.jpeg', label: 'EI会议论文 (2)' },
-  { img: '/images/credentials/paper-ei-2-detail.jpeg', label: 'EI会议论文详情 (2)' },
-  { img: '/images/credentials/paper-ei-3.jpeg', label: 'EI会议论文 (3)' },
-  { img: '/images/credentials/paper-core-journal.jpeg', label: '中国核心期刊论文' },
 ]
 
 
@@ -428,61 +397,7 @@ const allCertificates = [
   line-height: 1.8;
 }
 
-/* Lightbox */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(8px);
-  padding: var(--space-8);
-}
 
-.lightbox__close {
-  position: absolute;
-  top: 20px;
-  right: 24px;
-  font-size: 2rem;
-  color: white;
-  cursor: pointer;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.2s;
-}
-
-.lightbox__close:hover {
-  opacity: 0.7;
-}
-
-.lightbox__img {
-  max-width: 90vw;
-  max-height: 80vh;
-  object-fit: contain;
-  border-radius: var(--radius-md);
-}
-
-.lightbox__label {
-  margin-top: var(--space-4);
-  color: rgba(255, 255, 255, 0.8);
-  font-size: var(--text-base);
-}
-
-.lightbox-enter-active,
-.lightbox-leave-active {
-  transition: opacity 0.3s ease;
-}
-
-.lightbox-enter-from,
-.lightbox-leave-to {
-  opacity: 0;
-}
 
 @media (max-width: 768px) {
   .team-hero__title { font-size: var(--text-3xl); }

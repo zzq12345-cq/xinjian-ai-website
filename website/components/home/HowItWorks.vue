@@ -8,7 +8,7 @@
       <div class="how-it-works__steps stagger-children">
         <div v-for="(step, index) in steps" :key="index" class="how-it-works__step scroll-reveal">
           <div class="how-it-works__step-line">
-            <div class="how-it-works__step-dot" :class="{ 'how-it-works__step-dot--active': index === 0 }">
+            <div class="how-it-works__step-dot how-it-works__step-dot--active">
               {{ index + 1 }}
             </div>
             <div v-if="index < steps.length - 1" class="how-it-works__step-connector"></div>
@@ -102,22 +102,34 @@ const steps = [
 @media (max-width: 768px) {
   .how-it-works__steps {
     grid-template-columns: 1fr;
-    gap: var(--space-8);
-  }
-
-  .how-it-works__step-connector {
-    display: none;
+    gap: 0;
   }
 
   .how-it-works__step {
     flex-direction: row;
     text-align: left;
     gap: var(--space-5);
+    align-items: flex-start;
   }
 
   .how-it-works__step-line {
     width: auto;
     margin-bottom: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .how-it-works__step-connector {
+    position: static;
+    width: 1px;
+    height: 40px;
+    margin-top: var(--space-2);
+    background: var(--border-medium);
+  }
+
+  .how-it-works__step-content {
+    padding-top: var(--space-2);
+    padding-bottom: var(--space-6);
   }
 
   .how-it-works__step-desc {
