@@ -23,6 +23,19 @@
     "team": "Expert Team",
     "teamUnit": "members"
   },
+  "credentials": {
+    "title": "Core Credentials",
+    "subtitle": "Solid technical expertise and intellectual property form the foundation of our innovation",
+    "patents": "National Patents",
+    "copyrights": "Software Copyrights",
+    "papers": "Academic Papers",
+    "partners": "Partner Companies",
+    "license": "Business License",
+    "patentDesign": "Design Patent: Heart Sound Detector",
+    "copyright1": "Copyright: Heart Sound Detection Platform",
+    "copyright2": "Copyright: ML Model Training Platform",
+    "paper": "EI Conference Paper"
+  },
   "pain": {
     "badge": "We Understand Your Concerns",
     "title": "Family Heart Health Shouldn't Be a Guessing Game",
@@ -93,6 +106,10 @@
     "archCloudDesc": "Supabase Data Storage + Authentication",
     "archApp": "User Client",
     "archAppDesc": "WeChat Mini Program + AI Assistant",
+    "galleryTitle": "Product Gallery",
+    "gallerySubtitle": "From exterior design to hardware internals, every detail crafted for excellence",
+    "dataCaption1": "AI Model Training Data — Multi-dimensional Feature Extraction",
+    "dataCaption2": "AI Model Performance — Accuracy Comparison Analysis",
     "flowTitle": "Detection Process",
     "flowSubtitle": "Complete a professional-grade heart sound detection in 30 seconds",
     "specsTitle": "Technical Specifications",
@@ -108,9 +125,20 @@
   "team": {
     "heroTitle": "We Are XinJian AI",
     "heroSubtitle": "A team of young innovators using technology to warm family health",
+    "deptCore": "Core Team",
     "deptTech": "Technology",
     "deptMarket": "Marketing",
     "deptOps": "Operations",
+    "ipTitle": "Intellectual Property",
+    "ipSubtitle": "Strong technical moats with continuous innovation output",
+    "ipPatents": "National Patents",
+    "ipPatentsDetail": "2 utility model patents, 3 design patents authorized",
+    "ipCopyrights": "Software Copyrights",
+    "ipCopyrightsDetail": "Heart Sound Detection Platform, ML Model Training Platform, etc.",
+    "ipPapers": "Academic Papers",
+    "ipPapersDetail": "5 EI conference papers, 1 Chinese core journal paper",
+    "awardsTitle": "Team Awards",
+    "awardsSubtitle": "Honors and awards received by the project leader",
     "cultureTitle": "Our Culture",
     "mission": "Mission",
     "missionText": "Enable every family to enjoy AI-driven cardiac health protection",
@@ -138,6 +166,7 @@
     "infoTitle": "Contact Information",
     "email": "Email",
     "phone": "Phone",
+    "licenseTitle": "Business Qualification",
     "formTitle": "Send a Message",
     "formName": "Your Name",
     "formEmail": "Your Email",
@@ -150,7 +179,9 @@
       "investment": "Investment Inquiry",
       "join": "Join Our Team",
       "other": "Other"
-    }
+    },
+    "partnersTitle": "Partners",
+    "partnersSubtitle": "Working with industry partners to build a cardiac health ecosystem"
   },
   "footer": {
     "slogan": "Guarding Every Heartbeat with AI",

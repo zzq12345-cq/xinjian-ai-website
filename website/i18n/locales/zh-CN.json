@@ -23,6 +23,19 @@
     "team": "专业团队",
     "teamUnit": "人"
   },
+  "credentials": {
+    "title": "核心资质",
+    "subtitle": "扎实的技术积累与知识产权是我们创新的基石",
+    "patents": "国家专利",
+    "copyrights": "软件著作权",
+    "papers": "学术论文",
+    "partners": "合作企业",
+    "license": "营业执照",
+    "patentDesign": "外观设计专利：心音检测仪",
+    "copyright1": "软著：心音异常检测平台",
+    "copyright2": "软著：机器学习模型训练平台",
+    "paper": "EI会议论文"
+  },
   "pain": {
     "badge": "我们理解您的困扰",
     "title": "家人的心脏健康，不该靠猜",
@@ -93,6 +106,10 @@
     "archCloudDesc": "Supabase 数据存储 + 认证",
     "archApp": "用户端",
     "archAppDesc": "微信小程序 + AI助手",
+    "galleryTitle": "产品实拍",
+    "gallerySubtitle": "从外观设计到硬件内核，每一个细节都追求极致",
+    "dataCaption1": "AI模型训练数据 — 多维特征提取",
+    "dataCaption2": "AI模型性能评估 — 准确率对比分析",
     "flowTitle": "检测流程",
     "flowSubtitle": "30秒完成一次专业级心音检测",
     "specsTitle": "技术参数",
@@ -108,9 +125,20 @@
   "team": {
     "heroTitle": "我们是心鉴智能",
     "heroSubtitle": "一群用技术温暖家庭健康的年轻人",
+    "deptCore": "核心团队",
     "deptTech": "技术团队",
     "deptMarket": "市场团队",
     "deptOps": "运营团队",
+    "ipTitle": "知识产权",
+    "ipSubtitle": "坚实的技术壁垒，持续的创新输出",
+    "ipPatents": "国家专利",
+    "ipPatentsDetail": "已授权实用新型专利2项，外观设计专利3项",
+    "ipCopyrights": "软件著作权",
+    "ipCopyrightsDetail": "心音异常检测平台、机器学习模型训练平台等",
+    "ipPapers": "学术论文",
+    "ipPapersDetail": "5篇EI会议论文，1篇中国核心期刊论文",
+    "awardsTitle": "团队荣誉",
+    "awardsSubtitle": "项目负责人所获荣誉及奖项",
     "cultureTitle": "团队文化",
     "mission": "使命",
     "missionText": "让每个家庭都能享受到AI驱动的心脏健康守护",
@@ -138,6 +166,7 @@
     "infoTitle": "联系方式",
     "email": "邮箱",
     "phone": "电话",
+    "licenseTitle": "企业资质",
     "formTitle": "在线留言",
     "formName": "您的姓名",
     "formEmail": "您的邮箱",
@@ -150,7 +179,9 @@
       "investment": "投资咨询",
       "join": "加入团队",
       "other": "其他"
-    }
+    },
+    "partnersTitle": "合作伙伴",
+    "partnersSubtitle": "携手行业合作伙伴，共建心脏健康生态"
   },
   "footer": {
     "slogan": "用AI守护每一次心跳",

@@ -26,7 +26,7 @@
       </div>
 
       <div class="hero__image animate-fade-in" style="animation-delay: 0.2s;">
-        <img src="/images/hero-device.png" alt="心音智鉴设备" />
+        <img src="/images/credentials/product-render-front.jpeg" alt="心音智鉴设备" />
       </div>
     </div>
 

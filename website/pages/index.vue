@@ -2,6 +2,7 @@
   <div>
     <HomeHeroSection />
     <HomeTrustBar />
+    <HomeCredentialsShowcase />
     <HomePainSolution />
     <HomeFeatureHighlights />
     <HomeHowItWorks />

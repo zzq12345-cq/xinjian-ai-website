@@ -13,7 +13,7 @@
           </p>
         </div>
         <div class="product-hero__image animate-fade-in" style="animation-delay: 0.15s;">
-          <img src="/images/hero-device.png" alt="HeartSound Device" />
+          <img src="/images/credentials/product-render-front.jpeg" alt="HeartSound Device" />
         </div>
       </div>
     </section>
@@ -49,6 +49,39 @@
             <div class="arch-node__step">{{ String(i + 1).padStart(2, '0') }}</div>
             <h4 class="arch-node__title">{{ $t(node.titleKey) }}</h4>
             <p class="arch-node__desc">{{ $t(node.descKey) }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Gallery -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title scroll-reveal">{{ $t('product.galleryTitle') }}</h2>
+          <p class="section-subtitle scroll-reveal">{{ $t('product.gallerySubtitle') }}</p>
+        </div>
+        <div class="product-gallery stagger-children">
+          <div class="product-gallery__main scroll-reveal">
+            <img src="/images/credentials/product-render-front.jpeg" alt="产品正面渲染图" />
+          </div>
+          <div class="product-gallery__side">
+            <div class="product-gallery__item scroll-reveal">
+              <img src="/images/credentials/product-render-angle.jpeg" alt="产品电路板细节" />
+            </div>
+            <div class="product-gallery__item scroll-reveal" style="animation-delay: 0.1s;">
+              <img src="/images/credentials/product-render-banner.jpeg" alt="产品横幅渲染" />
+            </div>
+          </div>
+        </div>
+        <div class="product-gallery__data scroll-reveal">
+          <div class="product-gallery__data-item">
+            <img src="/images/credentials/experiment-data-1.jpeg" alt="实验数据1" />
+            <p>{{ $t('product.dataCaption1') }}</p>
+          </div>
+          <div class="product-gallery__data-item">
+            <img src="/images/credentials/experiment-data-2.jpeg" alt="实验数据2" />
+            <p>{{ $t('product.dataCaption2') }}</p>
           </div>
         </div>
       </div>
@@ -258,6 +291,82 @@ const specs = [
   font-family: var(--font-display);
 }
 
+/* Product Gallery */
+.product-gallery {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-6);
+  margin-bottom: 48px;
+}
+
+.product-gallery__main {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.product-gallery__main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  transition: transform 0.4s ease;
+}
+
+.product-gallery__main:hover img {
+  transform: scale(1.02);
+}
+
+.product-gallery__side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.product-gallery__item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex: 1;
+}
+
+.product-gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  transition: transform 0.4s ease;
+}
+
+.product-gallery__item:hover img {
+  transform: scale(1.03);
+}
+
+.product-gallery__data {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+.product-gallery__data-item {
+  background: var(--surface-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.product-gallery__data-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-gallery__data-item p {
+  padding: 12px 16px;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  text-align: center;
+  font-weight: 500;
+}
+
 @media (max-width: 768px) {
   .product-hero__content {
     grid-template-columns: 1fr;
@@ -268,5 +377,7 @@ const specs = [
   .product-hero__title { font-size: var(--text-3xl); }
   .product-features { grid-template-columns: 1fr; }
   .arch-flow { grid-template-columns: repeat(2, 1fr); }
+  .product-gallery { grid-template-columns: 1fr; }
+  .product-gallery__data { grid-template-columns: 1fr; }
 }
 </style>
