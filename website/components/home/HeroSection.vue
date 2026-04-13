@@ -118,9 +118,9 @@ const localePath = useLocalePath()
   stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-dasharray: 2000;
-  stroke-dashoffset: 2000;
-  animation: waveform-draw 3s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+  stroke-dasharray: 4000;
+  stroke-dashoffset: 4000;
+  animation: waveform-draw 3.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
 }
 
 @keyframes waveform-draw {
