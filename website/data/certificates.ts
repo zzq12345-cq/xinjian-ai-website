@@ -16,10 +16,10 @@ export const allCertificates: Certificate[] = [
   { img: '/images/credentials/patent-road-detection.jpeg', label: '外观设计专利：道路颠簸检测' },
   { img: '/images/credentials/patent-motherboard-welder.jpeg', label: '外观设计专利：计算机主板焊接器' },
   // 软著 (4)
-  { img: '/images/credentials/copyright-heart-detection.jpeg', label: '软著：心音异常检测平台' },
-  { img: '/images/credentials/copyright-heart-detection-cert.jpeg', label: '软著证书：心音异常检测平台' },
-  { img: '/images/credentials/copyright-ml-training.jpeg', label: '软著：机器学习模型训练平台' },
-  { img: '/images/credentials/copyright-ml-training-cert.jpeg', label: '软著证书：机器学习模型训练平台' },
+  { img: '/images/credentials/copyright-heart-detection-cert.jpeg', label: '软著：心音异常检测平台' },
+  { img: '/images/credentials/copyright-ml-training-cert.jpeg', label: '软著：计算机机器学习模型训练平台' },
+  { img: '/images/credentials/copyright-road-detection-system.jpeg', label: '软著：道路颠簸检测系统' },
+  { img: '/images/credentials/copyright-heart-data-analysis.jpeg', label: '软著：心音数据管理分析系统' },
   // 论文 (6)
   { img: '/images/credentials/paper-ei-1.jpeg', label: 'EI论文 (1)' },
   { img: '/images/credentials/paper-ei-1-detail.jpeg', label: 'EI论文详情 (1)' },
