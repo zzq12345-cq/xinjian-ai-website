@@ -120,7 +120,7 @@ const localePath = useLocalePath()
   stroke-linejoin: round;
   stroke-dasharray: 4000;
   stroke-dashoffset: 4000;
-  animation: waveform-draw 3.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+  animation: waveform-draw 6s cubic-bezier(0.25, 0.1, 0.25, 1) 0.5s forwards;
 }
 
 @keyframes waveform-draw {
