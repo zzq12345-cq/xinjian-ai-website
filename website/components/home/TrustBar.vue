@@ -53,14 +53,14 @@ onMounted(() => {
 <style scoped>
 .trust-bar {
   background: var(--surface-white);
-  padding: 60px 0;
+  padding: 80px 0;
   border-bottom: 1px solid var(--border-light);
 }
 
 .trust-bar__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-8);
+  gap: var(--space-10);
   text-align: center;
 }
 

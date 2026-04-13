@@ -5,6 +5,10 @@
       <div class="hero__bg-solid"></div>
       <!-- 品牌色竖条装饰 -->
       <div class="hero__accent-bar"></div>
+      <!-- 心音波形签名动画 — 贯穿背景的视觉记忆点 -->
+      <svg class="hero__waveform" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="hero__waveform-path" d="M0,100 L200,100 L240,100 L260,60 L280,140 L300,30 L320,170 L340,80 L360,120 L380,100 L600,100 L640,100 L660,70 L680,130 L700,40 L720,160 L740,90 L760,110 L780,100 L1000,100 L1040,100 L1060,65 L1080,135 L1100,35 L1120,165 L1140,85 L1160,115 L1180,100 L1440,100" />
+      </svg>
     </div>
 
     <div class="container hero__content">
@@ -68,7 +72,7 @@ const localePath = useLocalePath()
   height: 100%;
 }
 
-/* 左白右浅灰 纯色分区 — 不是渐变 */
+/* 左白右浅灰 纯色分区 */
 .hero__bg-solid {
   position: absolute;
   inset: 0;
@@ -85,7 +89,7 @@ const localePath = useLocalePath()
   background: #FFFFFF;
 }
 
-/* 品牌红竖条 — 左侧边缘装饰线 */
+/* 品牌红竖条 */
 .hero__accent-bar {
   position: absolute;
   top: 15%;
@@ -95,6 +99,34 @@ const localePath = useLocalePath()
   background: var(--brand-primary);
 }
 
+/* 心音波形 — 签名式视觉记忆点 */
+.hero__waveform {
+  position: absolute;
+  bottom: 20%;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+.hero__waveform-path {
+  fill: none;
+  stroke: var(--brand-primary);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: waveform-draw 3s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+@keyframes waveform-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 .hero__content {
   position: relative;
   z-index: 1;
@@ -102,14 +134,14 @@ const localePath = useLocalePath()
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .hero__title {
   font-size: var(--text-5xl);
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.15;
   margin-bottom: var(--space-6);
   letter-spacing: -0.02em;
   color: var(--text-primary);
@@ -156,7 +188,7 @@ const localePath = useLocalePath()
   z-index: 1;
 }
 
-/* 心跳脉搏波纹 — 纯色边框，不是渐变 */
+/* 心跳脉搏波纹 — 纯色边框 */
 .hero__pulse-ring {
   position: absolute;
   width: 380px;
@@ -188,7 +220,7 @@ const localePath = useLocalePath()
 .hero__scene {
   position: relative;
   z-index: 1;
-  padding: 0 0 80px;
+  padding: 0 0 100px;
   background: #FFFFFF;
 }
 
@@ -210,7 +242,7 @@ const localePath = useLocalePath()
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 40px;
+  padding: 48px;
   background: linear-gradient(transparent, rgba(0,0,0,0.6));
 }
 
@@ -234,8 +266,8 @@ const localePath = useLocalePath()
     grid-template-columns: 1fr;
     gap: var(--space-10);
     text-align: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 48px;
+    padding-bottom: 48px;
   }
 
   .hero__subtitle {
@@ -279,6 +311,10 @@ const localePath = useLocalePath()
   }
 
   .hero__pulse-ring {
+    display: none;
+  }
+
+  .hero__waveform {
     display: none;
   }
 }

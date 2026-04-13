@@ -42,14 +42,16 @@ const painItems = [
 
 .pain__card {
   background: var(--surface-white);
-  padding: 40px 32px;
+  padding: 48px 36px;
   display: flex;
   flex-direction: column;
-  transition: box-shadow var(--transition-base);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-sm);
 }
 
 .pain__card:hover {
   box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
 }
 
 .pain__number {

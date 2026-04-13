@@ -55,22 +55,22 @@
   --text-2xl: 1.5rem;
   --text-3xl: 2rem;
   --text-4xl: 2.5rem;
-  --text-5xl: 3.25rem;
-  --text-6xl: 4rem;
+  --text-5xl: 3.5rem;
+  --text-6xl: 4.5rem;
 
-  /* ─── 圆角（华为风格：极小圆角/直角） ─── */
-  --radius-sm: 2px;
-  --radius-md: 4px;
-  --radius-lg: 8px;
-  --radius-xl: 12px;
+  /* ─── 圆角（现代医疗风：温和友好） ─── */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
   --radius-full: 9999px;
 
-  /* ─── 阴影（华为风格：极淡/无阴影） ─── */
-  --shadow-sm: none;
-  --shadow-md: 0 2px 12px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.06);
-  --shadow-xl: 0 8px 32px rgba(0, 0, 0, 0.08);
-  --shadow-brand: none;
+  /* ─── 阴影（可见且克制） ─── */
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.16);
+  --shadow-brand: 0 4px 16px rgba(199, 0, 11, 0.15);
 
   /* ─── 间距 ─── */
   --space-1: 0.25rem;

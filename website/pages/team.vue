@@ -321,7 +321,7 @@ const departments = [
 .ip-marquee__track {
   display: flex;
   gap: 20px;
-  animation: marquee-scroll 60s linear infinite;
+  animation: marquee-scroll 80s linear infinite;
   width: max-content;
   will-change: transform;
 }

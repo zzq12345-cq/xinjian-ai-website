@@ -53,7 +53,7 @@ import { allCertificates } from '~/data/certificates'
 .credentials__track {
   display: flex;
   gap: 20px;
-  animation: credentials-scroll 55s linear infinite;
+  animation: credentials-scroll 80s linear infinite;
   width: max-content;
   will-change: transform;
 }

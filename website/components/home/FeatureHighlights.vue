@@ -95,14 +95,16 @@ const features: FeatureItem[] = [
 }
 
 .features__card {
-  padding: 48px 36px;
+  padding: 56px 40px;
   background: var(--surface-light);
-  transition: all var(--transition-base);
+  border-radius: var(--radius-md);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .features__card:hover {
   background: var(--surface-white);
   box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
 }
 
 .features__icon {
