@@ -154,10 +154,25 @@ const specs = [
 </script>
 
 <style scoped>
-/* Hero */
+/* Hero — Dark Gradient */
 .product-hero {
-  padding: 120px 0 80px;
-  background: var(--surface-light);
+  padding: calc(var(--navbar-height) + 80px) 0 80px;
+  background: var(--gradient-hero);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-hero::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(199, 0, 11, 0.15) 0%, transparent 70%);
+  top: -100px;
+  right: 5%;
+  filter: blur(60px);
+  pointer-events: none;
 }
 
 .product-hero__content {
@@ -165,25 +180,28 @@ const specs = [
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .product-hero__title {
   font-size: var(--text-5xl);
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: var(--space-4);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  color: var(--text-inverse);
 }
 
 .product-hero__subtitle {
   font-size: var(--text-xl);
   font-weight: 400;
   margin-bottom: var(--space-4);
-  color: var(--text-secondary);
+  color: var(--text-inverse-muted);
 }
 
 .product-hero__desc {
   font-size: var(--text-base);
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.4);
   line-height: 1.8;
 }
 
@@ -191,6 +209,8 @@ const specs = [
   max-width: 100%;
   max-height: 400px;
   object-fit: contain;
+  filter: drop-shadow(0 16px 40px rgba(0, 0, 0, 0.4));
+  border-radius: var(--radius-lg);
 }
 
 /* Features */
@@ -203,12 +223,16 @@ const specs = [
 .product-feature {
   padding: 40px 32px;
   background: var(--surface-light);
-  transition: all var(--transition-base);
+  border-radius: var(--radius-lg);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
 }
 
 .product-feature:hover {
   background: var(--surface-white);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+  border-color: var(--border-light);
 }
 
 .product-feature__icon {
@@ -238,12 +262,23 @@ const specs = [
   text-align: center;
   padding: 40px 24px;
   background: var(--surface-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arch-node:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .arch-node__step {
   font-size: var(--text-3xl);
-  font-weight: 300;
-  color: var(--border-medium);
+  font-weight: 700;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: var(--space-4);
   font-family: var(--font-display);
 }
@@ -297,7 +332,7 @@ const specs = [
 }
 
 .product-gallery__main {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
@@ -305,7 +340,7 @@ const specs = [
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   transition: transform 0.4s ease;
 }
 
@@ -365,6 +400,10 @@ const specs = [
 }
 
 @media (max-width: 768px) {
+  .product-hero {
+    padding: calc(var(--navbar-height) + 48px) 0 60px;
+  }
+
   .product-hero__content {
     grid-template-columns: 1fr;
     text-align: center;

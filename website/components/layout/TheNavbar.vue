@@ -24,7 +24,7 @@
         <button class="navbar__lang-btn" @click="toggleLocale">
           {{ locale === 'zh' ? 'EN' : '中文' }}
         </button>
-        <NuxtLink :to="localePath('/contact')" class="navbar__contact-link">
+        <NuxtLink :to="localePath('/contact')" class="navbar__contact-btn">
           {{ $t('nav.contact') }}
         </NuxtLink>
 
@@ -36,9 +36,6 @@
         </button>
       </div>
     </div>
-
-    <!-- Bottom border line -->
-    <div class="navbar__border"></div>
 
     <!-- Mobile Menu -->
     <Transition name="slide-down">
@@ -103,21 +100,15 @@ useEventListener(window, 'scroll', () => {
   right: 0;
   z-index: 1000;
   height: var(--navbar-height);
-  background: var(--surface-white);
-  transition: box-shadow var(--transition-base);
+  background: transparent;
+  transition: background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
 }
 
 .navbar--scrolled {
-  box-shadow: 0 1px 0 var(--border-light);
-}
-
-.navbar__border {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: var(--border-light);
+  background: var(--glass-bg);
+  backdrop-filter: var(--blur-md);
+  -webkit-backdrop-filter: var(--blur-md);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .navbar__inner {
@@ -127,74 +118,59 @@ useEventListener(window, 'scroll', () => {
   height: 100%;
 }
 
-/* Logo — 华为风格纯文字 */
+/* Logo */
 .navbar__logo {
   display: flex;
   align-items: center;
   text-decoration: none;
   color: var(--text-primary);
+  transition: color 0.4s ease;
 }
 
 .navbar__logo-text {
-  font-size: 1.375rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 700;
   font-family: var(--font-display);
   letter-spacing: 0.02em;
 }
 
-/* Links — 华为风格简约 */
+/* Links */
 .navbar__links {
   display: flex;
   align-items: center;
-  gap: 0;
+  gap: var(--space-1);
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .navbar__link {
-  padding: 0 var(--space-5);
-  color: var(--text-primary);
+  padding: var(--space-2) var(--space-5);
+  color: var(--text-secondary);
   font-weight: 400;
   font-size: var(--text-base);
-  transition: color var(--transition-fast);
+  transition: all var(--transition-fast);
   text-decoration: none;
-  height: var(--navbar-height);
-  display: flex;
-  align-items: center;
+  border-radius: var(--radius-full);
   position: relative;
 }
 
-.navbar__link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: var(--space-5);
-  right: var(--space-5);
-  height: 2px;
-  background: var(--brand-primary);
-  transform: scaleX(0);
-  transition: transform var(--transition-base);
-}
-
 .navbar__link:hover {
-  color: var(--brand-primary);
-}
-
-.navbar__link:hover::after,
-.navbar__link--active::after {
-  transform: scaleX(1);
+  color: var(--text-primary);
+  background: var(--surface-gray);
 }
 
 .navbar__link--active {
-  color: var(--brand-primary);
+  color: var(--text-primary) !important;
+  font-weight: 500;
+  background: transparent;
 }
 
 /* Actions */
 .navbar__actions {
   display: flex;
   align-items: center;
-  gap: var(--space-5);
+  gap: var(--space-3);
 }
 
 .navbar__lang-btn {
@@ -202,23 +178,38 @@ useEventListener(window, 'scroll', () => {
   font-size: var(--text-sm);
   font-weight: 400;
   cursor: pointer;
-  padding: var(--space-1) var(--space-2);
-  transition: color var(--transition-fast);
+  padding: var(--space-2) var(--space-3);
+  transition: all var(--transition-fast);
+  border-radius: var(--radius-full);
 }
 
 .navbar__lang-btn:hover {
-  color: var(--brand-primary);
-}
-
-.navbar__contact-link {
   color: var(--text-primary);
-  font-size: var(--text-base);
-  font-weight: 400;
-  transition: color var(--transition-fast);
+  background: var(--surface-gray);
 }
 
-.navbar__contact-link:hover {
-  color: var(--brand-primary);
+.navbar__contact-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-6);
+  background: var(--text-primary);
+  color: var(--text-inverse);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-base);
+  text-decoration: none;
+}
+
+.navbar--scrolled .navbar__contact-btn {
+  background: #333;
+}
+
+.navbar__contact-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  background: #333;
+  color: var(--text-inverse);
 }
 
 /* Hamburger */
@@ -256,7 +247,9 @@ useEventListener(window, 'scroll', () => {
   top: var(--navbar-height);
   left: 0;
   right: 0;
-  background: var(--surface-white);
+  background: var(--glass-bg);
+  backdrop-filter: var(--blur-md);
+  -webkit-backdrop-filter: var(--blur-md);
   border-top: 1px solid var(--border-light);
   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
   padding: var(--space-6);
@@ -307,7 +300,7 @@ useEventListener(window, 'scroll', () => {
 
 @media (max-width: 768px) {
   .navbar__links,
-  .navbar__contact-link {
+  .navbar__contact-btn {
     display: none;
   }
 

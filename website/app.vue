@@ -1,7 +1,7 @@
 <template>
   <div>
     <LayoutTheNavbar />
-    <main class="main-content">
+    <main>
       <NuxtPage />
     </main>
     <LayoutTheFooter />
@@ -13,8 +13,6 @@ useScrollAnimation()
 </script>
 
 <style>
-.main-content {
-  min-height: 100vh;
-  padding-top: var(--navbar-height);
-}
+/* No padding-top here — each page's hero handles its own spacing.
+   Navbar is transparent overlay on dark hero backgrounds. */
 </style>

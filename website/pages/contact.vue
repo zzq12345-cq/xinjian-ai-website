@@ -186,20 +186,22 @@ const contracts = [
 
 <style scoped>
 .contact-hero {
-  padding: 120px 0 80px;
-  background: var(--surface-light);
+  padding: calc(var(--navbar-height) + 80px) 0 80px;
+  background: var(--gradient-hero);
+  position: relative;
 }
 
 .contact-hero__title {
   font-size: var(--text-5xl);
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: var(--space-4);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  color: var(--text-inverse);
 }
 
 .contact-hero__subtitle {
   font-size: var(--text-lg);
-  color: var(--text-secondary);
+  color: var(--text-inverse-muted);
 }
 
 .contact-grid {
@@ -277,6 +279,7 @@ const contracts = [
 .contact-form-wrapper {
   background: var(--surface-light);
   padding: 48px;
+  border-radius: var(--radius-xl);
 }
 
 .contact-form__row {
@@ -305,6 +308,7 @@ const contracts = [
   transition: border-color var(--transition-fast);
   background: var(--surface-white);
   color: var(--text-primary);
+  border-radius: var(--radius-sm);
 }
 
 .contact-form__input:focus {
@@ -346,6 +350,7 @@ const contracts = [
   color: var(--safe-green);
   font-weight: 500;
   text-align: center;
+  border-radius: var(--radius-sm);
 }
 
 .fade-enter-active, .fade-leave-active { transition: opacity 0.3s; }
@@ -431,6 +436,10 @@ const contracts = [
 
 
 @media (max-width: 768px) {
+  .contact-hero {
+    padding: calc(var(--navbar-height) + 48px) 0 60px;
+  }
+
   .contact-hero__title { font-size: var(--text-3xl); }
   .contact-grid { grid-template-columns: 1fr; gap: var(--space-10); }
   .contact-form-wrapper { padding: var(--space-6); }

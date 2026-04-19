@@ -27,7 +27,7 @@ export default defineNuxtConfig({
           name: 'description',
           content: '心鉴智能科技工作室致力于AI心音检测技术研发，旗下产品「心音智鉴」通过树莓派边缘设备+微信小程序，为家庭用户提供便捷的心脏健康自检服务。',
         },
-        { name: 'theme-color', content: '#0891B2' },
+        { name: 'theme-color', content: '#FFFFFF' },
         { property: 'og:type', content: 'website' },
         { property: 'og:title', content: '心鉴智能科技工作室' },
         {
@@ -38,6 +38,9 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap' },
       ],
     },
   },

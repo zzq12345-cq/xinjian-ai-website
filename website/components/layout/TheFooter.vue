@@ -49,12 +49,26 @@ const localePath = useLocalePath()
 
 <style scoped>
 .footer {
-  background: var(--surface-dark);
-  color: rgba(255, 255, 255, 0.7);
+  background: var(--surface-darker);
+  color: rgba(255, 255, 255, 0.6);
+  position: relative;
+}
+
+/* Subtle grid texture */
+.footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
 }
 
 .footer__top {
-  padding: 64px 0 48px;
+  padding: 72px 0 56px;
+  position: relative;
 }
 
 .footer__grid {
@@ -64,16 +78,18 @@ const localePath = useLocalePath()
 }
 
 .footer__logo {
-  font-size: 1.375rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: var(--text-inverse);
   display: block;
   margin-bottom: var(--space-3);
+  letter-spacing: 0.02em;
+  font-family: var(--font-display);
 }
 
 .footer__slogan {
   font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.35);
   max-width: 260px;
   line-height: 1.6;
 }
@@ -92,19 +108,20 @@ const localePath = useLocalePath()
 }
 
 .footer__link {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.4);
   font-size: var(--text-sm);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 .footer__link:hover {
-  color: var(--text-inverse);
+  color: var(--brand-primary-light);
 }
 
 .footer__bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding: var(--space-5) 0;
+  position: relative;
 }
 
 .footer__bottom-inner {
@@ -115,7 +132,7 @@ const localePath = useLocalePath()
 
 .footer__copyright {
   font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.25);
 }
 
 .footer__legal {
@@ -125,13 +142,13 @@ const localePath = useLocalePath()
 
 .footer__legal-link {
   font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.25);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 .footer__legal-link:hover {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .footer__link--disabled {
@@ -140,7 +157,7 @@ const localePath = useLocalePath()
 }
 
 .footer__link--disabled:hover {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .footer__legal-link--disabled {
@@ -148,7 +165,7 @@ const localePath = useLocalePath()
 }
 
 .footer__legal-link--disabled:hover {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.25);
 }
 
 @media (max-width: 768px) {

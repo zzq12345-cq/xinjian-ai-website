@@ -1,57 +1,89 @@
 <template>
   <section class="hero">
+    <!-- Ambient background -->
     <div class="hero__bg">
-      <!-- 纯色分区背景 -->
-      <div class="hero__bg-solid"></div>
-      <!-- 品牌色竖条装饰 -->
-      <div class="hero__accent-bar"></div>
+      <div class="hero__orb hero__orb--1"></div>
+      <div class="hero__orb hero__orb--2"></div>
     </div>
 
-    <!-- 心音波形签名动画 — 独立层级，不被内容遮挡 -->
-    <svg class="hero__waveform" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path class="hero__waveform-path" d="M0,100 L200,100 L240,100 L260,60 L280,140 L300,30 L320,170 L340,80 L360,120 L380,100 L600,100 L640,100 L660,70 L680,130 L700,40 L720,160 L740,90 L760,110 L780,100 L1000,100 L1040,100 L1060,65 L1080,135 L1100,35 L1120,165 L1140,85 L1160,115 L1180,100 L1440,100" />
-    </svg>
-
-    <div class="container hero__content">
+    <div class="container hero__inner">
+      <!-- Centered text -->
       <div class="hero__text">
-        <h1 class="hero__title animate-fade-in-up">
-          {{ $t('hero.title') }}<br />
+        <h1 class="hero__title">
+          {{ $t('hero.title') }}
           <span class="hero__title-highlight">{{ $t('hero.titleHighlight') }}</span>
         </h1>
-
-        <p class="hero__subtitle animate-fade-in-up" style="animation-delay: 0.15s;">
-          {{ $t('hero.subtitle') }}
-        </p>
-
-        <div class="hero__actions animate-fade-in-up" style="animation-delay: 0.3s;">
-          <NuxtLink :to="localePath('/product')" class="btn btn--primary btn--lg">
+        <p class="hero__subtitle">{{ $t('hero.subtitle') }}</p>
+        <div class="hero__actions">
+          <NuxtLink :to="localePath('/product')" class="btn btn--brand btn--lg">
             {{ $t('hero.cta') }}
           </NuxtLink>
-          <NuxtLink :to="localePath('/contact')" class="btn btn--outline btn--lg">
+          <NuxtLink :to="localePath('/contact')" class="btn btn--outline-dark btn--lg">
             {{ $t('hero.ctaSecondary') }}
           </NuxtLink>
         </div>
       </div>
 
-      <div class="hero__image animate-fade-in" style="animation-delay: 0.2s;">
-        <div class="hero__image-wrapper">
-          <!-- 心跳脉搏波纹 -->
-          <div class="hero__pulse-ring hero__pulse-ring--1"></div>
-          <div class="hero__pulse-ring hero__pulse-ring--2"></div>
-          <NuxtImg src="/images/credentials/product-render-front.jpeg" alt="心音智鉴设备" format="webp" />
-        </div>
-      </div>
-    </div>
+      <!-- Visual block: brand-colored container with 3 floating feature capsules -->
+      <div class="hero__visual">
+        <div class="hero__block">
+          <!-- Decorative SVG art inside block -->
+          <svg class="hero__block-art" viewBox="0 0 1200 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="200" cy="100" r="180" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+            <circle cx="1000" cy="300" r="220" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+            <circle cx="600" cy="200" r="80" fill="rgba(255,255,255,0.04)"/>
+            <path d="M0 300 Q300 100 600 250 T1200 150" stroke="rgba(255,255,255,0.12)" stroke-width="2" fill="none"/>
+            <path d="M0 350 Q400 200 800 320 T1200 200" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none"/>
+            <rect x="100" y="250" width="80" height="80" rx="24" fill="rgba(255,255,255,0.05)" transform="rotate(15 140 290)"/>
+            <rect x="900" y="50" width="60" height="60" rx="18" fill="rgba(255,255,255,0.06)" transform="rotate(-10 930 80)"/>
+            <circle cx="400" cy="80" r="12" fill="rgba(255,255,255,0.1)"/>
+            <circle cx="850" cy="320" r="8" fill="rgba(255,255,255,0.12)"/>
+          </svg>
 
-    <!-- Family scene banner -->
-    <div class="hero__scene">
-      <div class="container">
-        <div class="hero__scene-inner scroll-reveal">
-          <NuxtImg src="/images/family-health.png" alt="家庭健康守护" class="hero__scene-img" format="webp" />
-          <div class="hero__scene-overlay">
-            <p class="hero__scene-text">{{ $t('hero.ctaSecondary') }} — {{ $t('pain.subtitle') }}</p>
+          <!-- Product image centered -->
+          <NuxtImg
+            src="/images/credentials/product-render-front.jpeg"
+            alt="心音智鉴设备"
+            format="webp"
+            class="hero__product-img"
+          />
+
+          <!-- Three floating feature capsules overlapping the block -->
+          <div class="hero__capsule hero__capsule--1">
+            <div class="hero__capsule-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <div class="hero__capsule-text">
+              <span class="hero__capsule-title">{{ $t('features.f1Title') }}</span>
+              <span class="hero__capsule-sub">{{ $t('pain.pain1Solution') }}</span>
+            </div>
+          </div>
+
+          <div class="hero__capsule hero__capsule--2">
+            <div class="hero__capsule-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <div class="hero__capsule-text">
+              <span class="hero__capsule-title">{{ $t('features.f2Title') }}</span>
+              <span class="hero__capsule-sub">{{ $t('pain.pain2Solution') }}</span>
+            </div>
+          </div>
+
+          <div class="hero__capsule hero__capsule--3">
+            <div class="hero__capsule-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="hero__capsule-text">
+              <span class="hero__capsule-title">{{ $t('features.f3Title') }}</span>
+              <span class="hero__capsule-sub">{{ $t('pain.pain3Solution') }}</span>
+            </div>
           </div>
         </div>
+      </div>
+
+      <!-- Carousel indicators (dot style) -->
+      <div class="hero__dots">
+        <span v-for="n in 7" :key="n" class="hero__dot" :class="{ 'hero__dot--active': n === 3 }"></span>
       </div>
     </div>
   </section>
@@ -65,244 +97,267 @@ const localePath = useLocalePath()
 .hero {
   position: relative;
   overflow: hidden;
+  background: var(--gradient-hero);
+  padding-top: calc(var(--navbar-height) + 80px);
+  padding-bottom: 80px;
 }
 
+/* ─── Background ─── */
 .hero__bg {
   position: absolute;
   inset: 0;
-  height: 100%;
-}
-
-/* 左白右浅灰 纯色分区 */
-.hero__bg-solid {
-  position: absolute;
-  inset: 0;
-  background: #F5F5F5;
-}
-
-.hero__bg-solid::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background: #FFFFFF;
-}
-
-/* 品牌红竖条 */
-.hero__accent-bar {
-  position: absolute;
-  top: 15%;
-  left: 0;
-  width: 4px;
-  height: 120px;
-  background: var(--brand-primary);
-}
-
-/* 心音波形 — 签名式视觉记忆点，独立于 bg 层 */
-.hero__waveform {
-  position: absolute;
-  top: 45%;
-  left: 0;
-  width: 100%;
-  height: 120px;
-  opacity: 0.15;
   pointer-events: none;
-  z-index: 0;
 }
 
-.hero__waveform-path {
-  fill: none;
-  stroke: var(--brand-primary);
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 4000;
-  stroke-dashoffset: 4000;
-  animation: waveform-draw 6s cubic-bezier(0.25, 0.1, 0.25, 1) 0.5s forwards;
+.hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.8;
 }
 
-@keyframes waveform-draw {
-  to {
-    stroke-dashoffset: 0;
-  }
+.hero__orb--1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(199, 0, 11, 0.06) 0%, transparent 70%);
+  top: -10%;
+  right: 10%;
+  animation: glowPulse 8s ease-in-out infinite;
 }
 
-.hero__content {
+.hero__orb--2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.04) 0%, transparent 70%);
+  bottom: 0%;
+  left: -5%;
+  animation: glowPulse 10s ease-in-out infinite 2s;
+}
+
+/* ─── Inner ─── */
+.hero__inner {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding-top: 100px;
-  padding-bottom: 100px;
+}
+
+/* ─── Text ─── */
+.hero__text {
+  text-align: center;
+  max-width: 800px;
+  margin-bottom: var(--space-16);
 }
 
 .hero__title {
-  font-size: var(--text-5xl);
-  font-weight: 500;
-  line-height: 1.15;
+  font-size: var(--text-hero);
+  font-weight: 700;
+  line-height: 1.05;
   margin-bottom: var(--space-6);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
   color: var(--text-primary);
+  font-family: var(--font-display);
 }
 
 .hero__title-highlight {
-  color: var(--brand-primary);
+  display: inline-block;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero__subtitle {
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   color: var(--text-secondary);
-  line-height: 1.8;
+  line-height: 1.6;
   margin-bottom: var(--space-10);
-  max-width: 480px;
   font-weight: 400;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero__actions {
   display: flex;
   gap: var(--space-4);
-}
-
-/* 产品图区域 */
-.hero__image {
-  display: flex;
   justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
 }
 
-.hero__image-wrapper {
+/* Outline dark button for light bg */
+.btn--outline-dark {
+  background: transparent;
+  border: 1.5px solid var(--border-medium);
+  color: var(--text-primary);
+  border-radius: var(--radius-full);
+  padding: 14px 32px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn--outline-dark:hover {
+  background: var(--surface-light);
+  border-color: var(--text-primary);
+}
+
+/* ─── Visual Block ─── */
+.hero__visual {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.hero__block {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  height: 420px;
+  background: var(--gradient-brand);
+  border-radius: var(--radius-2xl);
+  overflow: visible;
+  box-shadow: 0 32px 80px rgba(199, 0, 11, 0.2);
 }
 
-.hero__image :deep(img) {
-  max-width: 100%;
-  max-height: 460px;
-  object-fit: contain;
-  border-radius: var(--radius-lg);
-  position: relative;
-  z-index: 1;
-}
-
-/* 心跳脉搏波纹 — 纯色边框 */
-.hero__pulse-ring {
+.hero__block-art {
   position: absolute;
-  width: 380px;
-  height: 380px;
-  border-radius: 50%;
-  border: 1px solid rgba(199, 0, 11, 0.06);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.hero__product-img {
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: pulse-expand 4s ease-out infinite;
+  max-width: 320px;
+  max-height: 380px;
+  object-fit: contain;
+  z-index: 3;
+  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.35));
+  border-radius: var(--radius-xl);
 }
 
-.hero__pulse-ring--2 {
-  animation-delay: 2s;
-}
-
-@keyframes pulse-expand {
-  0% {
-    transform: translate(-50%, -50%) scale(0.8);
-    opacity: 0.5;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1.4);
-    opacity: 0;
-  }
-}
-
-/* Family Scene Banner */
-.hero__scene {
-  position: relative;
-  z-index: 1;
-  padding: 0 0 100px;
-  background: #FFFFFF;
-}
-
-.hero__scene-inner {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-lg);
-}
-
-.hero__scene-img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  display: block;
-}
-
-.hero__scene-overlay {
+/* ─── Floating feature capsules (like MiniMax's Token Plan cards) ─── */
+.hero__capsule {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 48px;
-  background: linear-gradient(transparent, rgba(0,0,0,0.6));
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  border-radius: var(--radius-full);
+  padding: 12px 24px 12px 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  z-index: 5;
+  transition: transform 0.3s ease;
 }
 
-.hero__scene-text {
-  color: white;
-  font-size: var(--text-lg);
-  font-weight: 400;
-  max-width: 600px;
+.hero__capsule:hover {
+  transform: translateY(-4px);
 }
 
+.hero__capsule-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gradient-brand-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-primary);
+  flex-shrink: 0;
+}
+
+.hero__capsule-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__capsule-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.hero__capsule-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Position each capsule around the block */
+.hero__capsule--1 {
+  top: 40px;
+  left: -20px;
+}
+
+.hero__capsule--2 {
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
+}
+
+.hero__capsule--2:hover {
+  transform: translateY(calc(-50% - 4px));
+}
+
+.hero__capsule--3 {
+  bottom: 40px;
+  left: 60px;
+}
+
+/* ─── Dots indicator (decorative, like MiniMax) ─── */
+.hero__dots {
+  display: flex;
+  gap: 8px;
+  margin-top: var(--space-12);
+}
+
+.hero__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.hero__dot--active {
+  width: 28px;
+  border-radius: var(--radius-full);
+  background: var(--text-primary);
+}
+
+/* ─── Responsive ─── */
 @media (max-width: 1024px) {
-  .hero__bg-solid::before {
-    width: 100%;
-  }
-
-  .hero__accent-bar {
-    display: none;
-  }
-
-  .hero__content {
-    grid-template-columns: 1fr;
-    gap: var(--space-10);
-    text-align: center;
-    padding-top: 48px;
-    padding-bottom: 48px;
-  }
-
-  .hero__subtitle {
-    margin: 0 auto var(--space-8);
-  }
-
-  .hero__actions {
-    justify-content: center;
-  }
-
   .hero__title {
-    font-size: var(--text-4xl);
+    font-size: var(--text-5xl);
   }
 
-  .hero__image {
-    order: -1;
+  .hero__block {
+    height: 320px;
   }
 
-  .hero__image :deep(img) {
-    max-height: 320px;
+  .hero__product-img {
+    max-width: 260px;
+    max-height: 300px;
   }
 
-  .hero__scene-img {
-    height: 240px;
-  }
-
-  .hero__pulse-ring {
-    width: 280px;
-    height: 280px;
+  .hero__capsule {
+    display: none;
   }
 }
 
 @media (max-width: 640px) {
+  .hero {
+    padding-top: calc(var(--navbar-height) + 40px);
+    padding-bottom: 60px;
+  }
+
   .hero__title {
     font-size: var(--text-3xl);
   }
@@ -312,11 +367,22 @@ const localePath = useLocalePath()
     align-items: center;
   }
 
-  .hero__pulse-ring {
-    display: none;
+  .hero__block {
+    height: 240px;
+    border-radius: var(--radius-xl);
   }
 
-  .hero__waveform {
+  .hero__product-img {
+    max-width: 200px;
+    max-height: 240px;
+  }
+
+  .hero__orb--1 {
+    width: 250px;
+    height: 250px;
+  }
+
+  .hero__orb--2 {
     display: none;
   }
 }

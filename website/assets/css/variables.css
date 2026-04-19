@@ -1,15 +1,21 @@
 /* ============================================
    心鉴智能 - 设计 Token / CSS 变量
-   华为风格：极简、大气、科技、克制
+   MiniMax 风格：现代、大气、科技感、圆润
    ============================================ */
 
 :root {
-  /* ─── 品牌色（华为式克制用色） ─── */
+  /* ─── 品牌色 ─── */
   --brand-primary: #C7000B;
   --brand-primary-light: #E5000F;
   --brand-primary-dark: #A30009;
   --brand-primary-50: #FEF2F2;
   --brand-primary-100: #FEE2E2;
+
+  /* ─── 品牌渐变 ─── */
+  --gradient-brand: linear-gradient(135deg, #E5000F 0%, #C7000B 50%, #A30009 100%);
+  --gradient-brand-soft: linear-gradient(135deg, rgba(199, 0, 11, 0.08) 0%, rgba(199, 0, 11, 0.02) 100%);
+  --gradient-hero: linear-gradient(180deg, #FFFFFF 0%, #F5F6F8 100%);
+  --gradient-card-hover: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%);
 
   /* ─── 科技蓝辅助色 ─── */
   --brand-tech: #0066FF;
@@ -24,27 +30,32 @@
   --danger-red: #E5000F;
   --danger-red-bg: #FEF2F2;
 
-  /* ─── 表面色（纯净白+极浅灰） ─── */
+  /* ─── 表面色 ─── */
   --surface-white: #FFFFFF;
-  --surface-light: #F7F7F7;
+  --surface-light: #F7F8FA;
   --surface-warm: #FAFAFA;
-  --surface-gray: #F5F5F5;
-  --surface-dark: #1A1A1A;
-  --surface-darker: #000000;
+  --surface-gray: #F2F3F5;
+  --surface-dark: #111117;
+  --surface-darker: #0A0A0A;
+  --surface-hero: #FFFFFF; /* light hero */
+  --surface-card-dark: rgba(255, 255, 255, 0.04);
 
-  /* ─── 文字色（高对比度黑灰白） ─── */
+  /* ─── 文字色 ─── */
   --text-primary: #191919;
   --text-secondary: #505050;
   --text-muted: #999999;
   --text-inverse: #FFFFFF;
+  --text-inverse-muted: rgba(255, 255, 255, 0.7);
 
   /* ─── 边框 ─── */
   --border-light: #EBEBEB;
   --border-medium: #DCDCDC;
+  --border-dark: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(199, 0, 11, 0.3);
 
-  /* ─── 字体（华为官网使用系统原生字体） ─── */
-  --font-sans: "HarmonyOS Sans SC", "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
-  --font-display: "HarmonyOS Sans SC", "PingFang SC", "Helvetica Neue", sans-serif;
+  /* ─── 字体 ─── */
+  --font-sans: "Inter", "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+  --font-display: "Outfit", "Inter", "PingFang SC", "Helvetica Neue", sans-serif;
 
   /* ─── 字号 ─── */
   --text-xs: 0.75rem;
@@ -57,20 +68,24 @@
   --text-4xl: 2.5rem;
   --text-5xl: 3.5rem;
   --text-6xl: 4.5rem;
+  --text-hero: clamp(3rem, 7vw, 6rem);
 
-  /* ─── 圆角（现代医疗风：温和友好） ─── */
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
+  /* ─── 圆角（MiniMax 风格：大圆角） ─── */
+  --radius-sm: 10px;
+  --radius-md: 20px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-2xl: 48px;
   --radius-full: 9999px;
 
-  /* ─── 阴影（可见且克制） ─── */
-  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 2px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
-  --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.16);
-  --shadow-brand: 0 4px 16px rgba(199, 0, 11, 0.15);
+  /* ─── 阴影 ─── */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.12);
+  --shadow-brand: 0 8px 32px rgba(199, 0, 11, 0.2);
+  --shadow-glow: 0 0 40px rgba(199, 0, 11, 0.15);
+  --shadow-card-hover: 0 24px 80px rgba(0, 0, 0, 0.08);
 
   /* ─── 间距 ─── */
   --space-1: 0.25rem;
@@ -86,7 +101,7 @@
   --space-20: 5rem;
   --space-24: 6rem;
 
-  /* ─── 内容宽度（华为用 1200px 主容器） ─── */
+  /* ─── 内容宽度 ─── */
   --container-sm: 640px;
   --container-md: 768px;
   --container-lg: 1024px;
@@ -99,6 +114,14 @@
   --transition-slow: 500ms ease;
   --transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
 
+  /* ─── 模糊/玻璃效果 ─── */
+  --blur-sm: blur(8px);
+  --blur-md: blur(16px);
+  --blur-lg: blur(32px);
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-bg-dark: rgba(10, 10, 10, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.12);
+
   /* ─── 导航栏高度 ─── */
-  --navbar-height: 64px;
+  --navbar-height: 72px;
 }

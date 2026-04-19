@@ -1,7 +1,14 @@
 <template>
-  <section class="pain section" style="background: var(--surface-light);">
+  <section class="pain section">
     <div class="container">
       <div class="section-header">
+        <div class="section-badge scroll-reveal">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+            <path d="M12 8v4M12 16h.01" />
+          </svg>
+          {{ $t('pain.badge') }}
+        </div>
         <h2 class="section-title scroll-reveal">{{ $t('pain.title') }}</h2>
         <p class="section-subtitle scroll-reveal">{{ $t('pain.subtitle') }}</p>
       </div>
@@ -13,9 +20,11 @@
             <h3 class="pain__title">{{ $t(item.titleKey) }}</h3>
             <p class="pain__desc">{{ $t(item.descKey) }}</p>
             <div class="pain__solution">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="2.5">
-                <path d="M5 13l4 4L19 7" />
-              </svg>
+              <div class="pain__solution-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
               <span>{{ $t(item.solutionKey) }}</span>
             </div>
           </div>
@@ -34,6 +43,10 @@ const painItems = [
 </script>
 
 <style scoped>
+.pain {
+  background: var(--surface-light);
+}
+
 .pain__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -45,22 +58,28 @@ const painItems = [
   padding: 48px 36px;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-xl);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--border-light);
 }
 
 .pain__card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-6px) scale(1.01);
+  border-color: transparent;
 }
 
 .pain__number {
-  font-size: var(--text-4xl);
-  font-weight: 300;
-  color: var(--border-light);
+  font-size: 4rem;
+  font-weight: 800;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: var(--space-6);
   font-family: var(--font-display);
   line-height: 1;
+  opacity: 0.7;
 }
 
 .pain__title {
@@ -80,10 +99,25 @@ const painItems = [
 .pain__solution {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
   color: var(--brand-primary);
   font-size: var(--text-sm);
   font-weight: 500;
+}
+
+.pain__solution-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--gradient-brand-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pain__solution-icon svg {
+  stroke: var(--brand-primary);
 }
 
 @media (max-width: 768px) {

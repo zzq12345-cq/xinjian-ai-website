@@ -160,21 +160,41 @@ const departments = [
 
 <style scoped>
 .team-hero {
-  padding: 120px 0 80px;
-  background: var(--surface-light);
+  padding: calc(var(--navbar-height) + 80px) 0 80px;
+  background: var(--gradient-hero);
+  position: relative;
+  overflow: hidden;
+}
+
+.team-hero::after {
+  content: '';
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(199, 0, 11, 0.12) 0%, transparent 70%);
+  bottom: -80px;
+  left: 10%;
+  filter: blur(60px);
+  pointer-events: none;
 }
 
 .team-hero__title {
   font-size: var(--text-5xl);
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: var(--space-4);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  color: var(--text-inverse);
+  position: relative;
+  z-index: 1;
 }
 
 .team-hero__subtitle {
   font-size: var(--text-lg);
-  color: var(--text-secondary);
+  color: var(--text-inverse-muted);
   font-weight: 400;
+  position: relative;
+  z-index: 1;
 }
 
 .team-hero__photo {
@@ -183,13 +203,16 @@ const departments = [
   max-width: var(--container-xl);
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .team-hero__photo img {
   width: 100%;
   height: 360px;
   object-fit: cover;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
+  filter: brightness(0.9);
 }
 
 .team-dept {
@@ -226,12 +249,15 @@ const departments = [
   padding: var(--space-8) var(--space-6);
   text-align: center;
   background: var(--surface-light);
-  transition: all var(--transition-base);
+  border-radius: var(--radius-lg);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid transparent;
 }
 
 .team-card:hover {
   background: var(--surface-white);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--border-light);
 }
 
 .team-card__avatar {
@@ -280,12 +306,14 @@ const departments = [
   background: var(--surface-white);
   padding: 40px 24px;
   text-align: center;
-  transition: all var(--transition-base);
+  border-radius: var(--radius-lg);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--border-light);
 }
 
 .ip-stat:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
 }
 
 .ip-stat__value {
@@ -383,6 +411,14 @@ const departments = [
   background: var(--surface-white);
   padding: 48px 36px;
   text-align: center;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.culture-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .culture-card__title {
@@ -400,6 +436,10 @@ const departments = [
 
 
 @media (max-width: 768px) {
+  .team-hero {
+    padding: calc(var(--navbar-height) + 48px) 0 60px;
+  }
+
   .team-hero__title { font-size: var(--text-3xl); }
   .ip-stats { grid-template-columns: 1fr; }
   .ip-card { width: 220px; }
