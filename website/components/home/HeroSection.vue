@@ -42,7 +42,7 @@
 
           <!-- Product image centered -->
           <NuxtImg
-            src="/images/credentials/product-render-front.jpeg"
+            src="/images/product-hero.jpg"
             alt="心音智鉴设备"
             format="webp"
             class="hero__product-img"
